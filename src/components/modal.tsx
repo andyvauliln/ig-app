@@ -1,9 +1,10 @@
-import {AuthContext} from '@/components/auth';
-import {Backdrop} from '@/components/backdrop';
-import {Button} from '@/components/button';
-import {setDoc, uploadFile} from '@junobuild/core-peer';
-import {nanoid} from 'nanoid';
-import {useContext, useEffect, useRef, useState} from 'react';
+import { AuthContext } from '@/components/auth';
+import { Backdrop } from '@/components/backdrop';
+import { Button } from '@/components/button';
+import { setDoc, uploadFile } from '@junobuild/core-peer';
+import { nanoid } from 'nanoid';
+import { useContext, useEffect, useRef, useState } from 'react';
+import { createNote, uploadImage } from '@/components/actions';
 
 export const Modal = () => {
   const [showModal, setShowModal] = useState<boolean>(false);
@@ -13,7 +14,7 @@ export const Modal = () => {
   const [file, setFile] = useState<File | undefined>(undefined);
   const uploadElement = useRef<HTMLInputElement>(null);
 
-  const {user} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
 
   useEffect(() => {
     setValid(inputText !== '' && user !== undefined && user !== null);
@@ -33,35 +34,9 @@ export const Modal = () => {
     setProgress(true);
 
     try {
-      let url;
-
-      if (file !== undefined) {
-        const filename = `${user.key}-${file.name}`;
-
-        const {downloadUrl} = await uploadFile({
-          collection: 'images',
-          data: file,
-          filename
-        });
-
-        url = downloadUrl;
-      }
-
-      const key = nanoid();
-
-      await setDoc({
-        collection: 'notes',
-        doc: {
-          key,
-          data: {
-            text: inputText,
-            ...(url !== undefined && {url})
-          }
-        }
-      });
-
+      const url = await uploadImage(file, user);
+      createNote(inputText, url);
       setShowModal(false);
-
       reload();
     } catch (err) {
       console.error(err);

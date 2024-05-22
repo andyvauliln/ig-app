@@ -1,11 +1,12 @@
-import {AuthContext} from '@/components/auth';
-import {Delete} from '@/components/delete';
-import type {Note, NoteData} from '@/types/note';
-import {listDocs} from '@junobuild/core-peer';
-import {useContext, useEffect, useState} from 'react';
+import { AuthContext } from '@/components/auth';
+import { Delete } from '@/components/delete';
+import type { Note, NoteData } from '@/types/note';
+
+import { useContext, useEffect, useState } from 'react';
+import { getNotes } from '@/components/actions';
 
 export const Table = () => {
-  const {user} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const [items, setItems] = useState<Note[]>([]);
 
   useEffect(() => {
@@ -17,12 +18,9 @@ export const Table = () => {
   }, []);
 
   const list = async () => {
-    const {items} = await listDocs<NoteData>({
-      collection: 'notes',
-      filter: {}
-    });
+    const notes = await getNotes()
 
-    setItems(items);
+    setItems(notes);
   };
 
   useEffect(() => {
@@ -47,7 +45,7 @@ export const Table = () => {
         {items.map((item, index) => {
           const {
             key,
-            data: {text, url}
+            data: { text, url }
           } = item;
 
           return (
