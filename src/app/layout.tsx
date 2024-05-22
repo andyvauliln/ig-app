@@ -5,8 +5,8 @@ import './globals.css';
 const jetBrainsMono = JetBrains_Mono({subsets: ['latin']});
 
 export const metadata: Metadata = {
-  title: 'Juno / Next.js Example',
-  description: 'Welcome to my app!'
+  title: 'Imortal Games',
+  description: 'Educational Web 3 Platform'
 };
 
 export default function RootLayout({
@@ -14,6 +14,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  console.log(process.env.NODE_ENV);
   return (
     <html lang="en">
       <body className={`${jetBrainsMono.className} bg-white dark:bg-black`}>{children}</body>

@@ -9,10 +9,12 @@ import {initSatellite} from '@junobuild/core-peer';
 import {useEffect} from 'react';
 
 export default function Home() {
+  console.log(process.env.NODE_ENV, "test");
   useEffect(() => {
     // eslint-disable-next-line @typescript-eslint/no-floating-promises
     (async () =>
       await initSatellite({
+        // satelliteId: process.env.NODE_ENV === "development" ? "jx5yt-yyaaa-aaaal-abzbq-cai" : "aaaaa-bbbbb-ccccc-ddddd-cai",
         workers: {
           auth: true
         }

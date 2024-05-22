@@ -31,3 +31,12 @@ All commands are run from the root of the project, from a terminal:
 ## 🚀 Launch
 
 Explore this [guide](https://juno.build/docs/add-juno-to-an-app/create-a-satellite) to launch your Satellite into orbit via Juno's [administration console](https://console.juno.build).
+
+juno dev stop
+# COLIMA DOCKER COMMANDS
+brew services start colima
+colima start
+socket path $HOME/.colima/default/docker.sock
+colima status
+docker context list
+export DOCKER_HOST="unix://${HOME}/.colima/default/docker.sock"
