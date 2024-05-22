@@ -1,7 +1,8 @@
-import {defineDevConfig} from '@junobuild/config';
+import { defineDevConfig } from '@junobuild/config';
 
 export default defineDevConfig(() => ({
   satellite: {
+    id: "aaaaa-bbbbb-ccccc-ddddd-cai",
     collections: {
       db: [
         {

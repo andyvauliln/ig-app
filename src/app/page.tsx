@@ -1,24 +1,24 @@
 'use client';
 
-import {Auth} from '@/components/auth';
-import {Background} from '@/components/background';
-import {Footer} from '@/components/footer';
-import {Modal} from '@/components/modal';
-import {Table} from '@/components/table';
-import {initSatellite} from '@junobuild/core-peer';
-import {useEffect} from 'react';
+import { Auth } from '@/components/auth';
+import { Background } from '@/components/background';
+import { Footer } from '@/components/footer';
+import { Modal } from '@/components/modal';
+import { Table } from '@/components/table';
+import { initSatellite } from '@junobuild/core-peer';
+import { useEffect } from 'react';
 
 export default function Home() {
-  console.log(process.env.NODE_ENV, "test");
   useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/no-floating-promises
+    // if (process.env.NEXT_PUBLIC_IS_ONCHAIN === 'true') {
     (async () =>
       await initSatellite({
-        // satelliteId: process.env.NODE_ENV === "development" ? "jx5yt-yyaaa-aaaal-abzbq-cai" : "aaaaa-bbbbb-ccccc-ddddd-cai",
+        satelliteId: process.env.NODE_ENV === "development" ? "jx5yt-yyaaa-aaaal-abzbq-cai" : process.env.NEXT_PUBLIC_SATTELITE_ID,
         workers: {
           auth: true
         }
       }))();
+    // }
   }, []);
 
   return (

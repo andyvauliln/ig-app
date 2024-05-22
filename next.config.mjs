@@ -1,3 +1,7 @@
-import {withJuno} from '@junobuild/nextjs-plugin';
+import { withJuno } from '@junobuild/nextjs-plugin';
 
-export default withJuno({juno: {container: true}});
+const isOnChain = process.env.NEXT_PUBLIC_IS_ONCHAIN === 'true';
+
+const config = isOnChain ? withJuno({ juno: { container: true } }) : {};
+
+export default config;
