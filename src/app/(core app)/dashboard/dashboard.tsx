@@ -10,7 +10,7 @@ import { CardTitle, CardDescription, CardHeader, CardContent, Card, CardFooter }
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { TableHead, TableRow, TableHeader, TableCell, TableBody, Table } from "@/components/ui/table"
-import { ToggleGroupItem, ToggleGroup } from "@/components/ui/toggle"
+import { ToggleGroupItem, ToggleGroup } from "@/components/ui/toggle-group"
 import { SelectValue, SelectTrigger, SelectItem, SelectContent, Select } from "@/components/ui/select"
 
 export function Dashboard() {
@@ -462,7 +462,7 @@ export function Dashboard() {
   )
 }
 
-function ChevronLeftIcon(props) {
+function ChevronLeftIcon(props: any) {
   return (
     <svg
       {...props}
@@ -482,7 +482,7 @@ function ChevronLeftIcon(props) {
 }
 
 
-function CirclePlusIcon(props) {
+function CirclePlusIcon(props: any) {
   return (
     <svg
       {...props}
@@ -525,7 +525,7 @@ function HomeIcon(props) {
 }
 
 
-function LineChartIcon(props) {
+function LineChartIcon(props: any) {
   return (
     <svg
       {...props}
@@ -546,7 +546,7 @@ function LineChartIcon(props) {
 }
 
 
-function Package2Icon(props) {
+function Package2Icon(props: any) {
   return (
     <svg
       {...props}
@@ -568,7 +568,7 @@ function Package2Icon(props) {
 }
 
 
-function PackageIcon(props) {
+function PackageIcon(props: any) {
   return (
     <svg
       {...props}
@@ -591,7 +591,7 @@ function PackageIcon(props) {
 }
 
 
-function PanelLeftIcon(props) {
+function PanelLeftIcon(props: any) {
   return (
     <svg
       {...props}
@@ -612,7 +612,7 @@ function PanelLeftIcon(props) {
 }
 
 
-function SearchIcon(props) {
+function SearchIcon(props: any) {
   return (
     <svg
       {...props}
@@ -633,7 +633,7 @@ function SearchIcon(props) {
 }
 
 
-function SettingsIcon(props) {
+function SettingsIcon(props: any) {
   return (
     <svg
       {...props}
@@ -654,7 +654,7 @@ function SettingsIcon(props) {
 }
 
 
-function ShoppingCartIcon(props) {
+function ShoppingCartIcon(props: any) {
   return (
     <svg
       {...props}
@@ -676,7 +676,7 @@ function ShoppingCartIcon(props) {
 }
 
 
-function UploadIcon(props) {
+function UploadIcon(props: any) {
   return (
     <svg
       {...props}
@@ -698,7 +698,7 @@ function UploadIcon(props) {
 }
 
 
-function UsersIcon(props) {
+function UsersIcon(props: any) {
   return (
     <svg
       {...props}

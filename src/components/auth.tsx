@@ -34,21 +34,21 @@ export const Auth = ({ children }: AuthProps) => {
 };
 
 
-import { LoadingScreen } from '@/components/LoadingScreen';
-import { RouteId } from '@/lib';
-import { User, authSubscribe, listDocs } from '@junobuild/core-peer';
-import { useRouter } from 'next/navigation';
-import { ReactNode, createContext, useEffect, useState } from 'react';
+// import { LoadingScreen } from '@/components/LoadingScreen';
+// import { RouteId } from '@/lib';
+// import { User, authSubscribe, listDocs } from '@junobuild/core-peer';
+// import { useRouter } from 'next/navigation';
+// import { ReactNode, createContext, useEffect, useState } from 'react';
 
-export const AuthContext = createContext<{
-  user: User | null | undefined;
-  setLoading:
-  | React.Dispatch<React.SetStateAction<boolean | undefined>>
-  | undefined;
-}>({
-  user: undefined,
-  setLoading: undefined,
-});
+// export const AuthContext = createContext<{
+//   user: User | null | undefined;
+//   setLoading:
+//   | React.Dispatch<React.SetStateAction<boolean | undefined>>
+//   | undefined;
+// }>({
+//   user: undefined,
+//   setLoading: undefined,
+// });
 
 // export const AuthProvider = ({ children }: { children?: ReactNode }) => {
 //   const [user, setUser] = useState<User | null | undefined>(undefined);
