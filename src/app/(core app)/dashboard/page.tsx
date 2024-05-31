@@ -11,7 +11,7 @@ import ProductImagesCard from "./components/ProductImagesCard";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 
-export function Dashboard() {
+export default function Dashboard() {
     return (
         <div className="flex min-h-screen w-full flex-col bg-muted/40">
             <Sidebar />

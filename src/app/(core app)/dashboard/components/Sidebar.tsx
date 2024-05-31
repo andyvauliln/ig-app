@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { TooltipTrigger, TooltipContent, Tooltip, TooltipProvider } from "@/components/ui/tooltip";
-import { HomeIcon, Package2Icon, PackageIcon, ShoppingCartIcon, UsersIcon, SettingsIcon } from "./Icons";
+import { HomeIcon, Package2Icon, PackageIcon, ShoppingCartIcon, UsersIcon, LineChartIcon, SettingsIcon } from "./Icons";
 
 function Sidebar() {
     return (
