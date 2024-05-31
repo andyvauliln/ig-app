@@ -104,3 +104,27 @@ export const getNotes = async (filter: ListParams = {}) => {
         return notes;
     }
 }
+
+
+export const getProfile = async (user: User) => {
+    if (process.env.NEXT_PUBLIC_IS_ONCHAIN === 'true') {
+        const profile = await listDocs({
+            collection: 'profiles',
+            filter: {
+                owner: user?.owner,
+            },
+        })
+        return profile;
+    } else {
+        // Implement local storage logic for getting profile
+        const profiles = JSON.parse(localStorage.getItem('profiles') || '[]');
+        console.log(profiles);
+        if (profiles.length > 0) {
+            return profiles[0];
+        }
+
+        return null;
+    }
+}
+
+
