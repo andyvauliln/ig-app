@@ -1,6 +1,5 @@
-<svg version="1.1" id="logo" fill="#5B2B7C" xmlns="http://www.w3.org/2000/svg"
-	xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100%" viewBox="0 0 2000 1994"
-	xml:space="preserve">
+<svg version="1.1" id="logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	y="0px" width="100%" viewBox="0 0 2100 2100" xml:space="preserve">
 	<defs>
 		<g id="title">
 			<path id="first-circle" d="
@@ -1411,7 +1410,7 @@ M895.082214,1241.476685
 	C895.815308,1429.093750 895.853333,1339.991333 895.797974,1250.889038 
 	C895.796021,1247.751465 895.331238,1244.614136 895.082214,1241.476685 
 z" />
-			<path id="later-c-1" stroke="none" d="
+			<path id="later-c-1" d="
 M1091.618896,821.590210 
 	C1085.552979,827.411926 1079.712280,832.961548 1073.488281,838.875305 
 	C1070.197266,838.310059 1070.032837,835.329407 1070.029175,832.289001 
@@ -1571,41 +1570,29 @@ M1254.888184,1396.002930
 	C1261.113037,1395.396362 1257.851318,1396.169678 1254.888184,1396.002930 
 z" />
 		</g>
-		<filter id="blue-glow" filterUnits="userSpaceOnUse" x="-50%" y="-50%" width="200%" height="200%">
-			<!-- blur the text at different levels-->
+		<filter id="purple-glow" filterUnits="userSpaceOnUse" x="-50%" y="-50%" width="200%" height="200%">
 			<feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur5" />
 			<feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur10" />
 			<feGaussianBlur in="SourceGraphic" stdDeviation="20" result="blur20" />
 			<feGaussianBlur in="SourceGraphic" stdDeviation="30" result="blur30" />
 			<feGaussianBlur in="SourceGraphic" stdDeviation="50" result="blur50" />
-			<!-- merge all the blurs except for the first one -->
 			<feMerge result="blur-merged">
 				<feMergeNode in="blur10" />
 				<feMergeNode in="blur20" />
 				<feMergeNode in="blur30" />
 				<feMergeNode in="blur50" />
 			</feMerge>
-			<!-- recolour the merged blurs blue-->
-			<feColorMatrix result="blue-blur" in="blur-merged" type="matrix" values="0 0 0 0 0
-                        0 0 0 0 0
-                        1 0 0 0 0
-                        0 0 0 1 0" />
 			<feMerge>
-				<feMergeNode in="blue-blur" /> <!-- largest blurs coloured blue -->
-				<feMergeNode in="blur5" /> <!-- smallest blur left white -->
-				<feMergeNode in="SourceGraphic" /> <!-- original white text -->
+				<feMergeNode in="blur-merged" />
+				<feMergeNode in="blur5" />
+				<feMergeNode in="SourceGraphic" />
 			</feMerge>
 		</filter>
 	</defs>
 	<rect width="100%" height="100%" fill="black" />
-	<g opacity="1" fill="none" stroke="hsl(180, 100%, 80%)" stroke-width="3" stroke-linecap="square"
-		stroke-dasharray="1500" stroke-dashoffset="1500" filter="url(#blue-glow)" transform="translate(100,100)">
-		<animate id="lineAnimation" attributeName="stroke-dashoffset" from="1500" to="0" dur="2s" fill="freeze" />
-		<animate id="opacityAnim" attributeName="opacity" from="1" to="0" dur="0.8s" begin="2s" fill="freeze" />
+	<g fill="none" stroke="#8b5cf6" stroke-width="3" stroke-linecap="square" stroke-dasharray="1500"
+		stroke-dashoffset="0" filter="url(#purple-glow)" transform="translate(100,100)">
+		<animate id="lineAnimation" attributeName="stroke-dasharray" values="0 1500; 1500 0" dur="2s" fill="freeze" />
 		<use xlink:href="#title" />
 	</g>
-	<g fill="black" fill-opacity="0" transform="translate(100,100)">
-		<animate id="g_anim" begin="2s" attributeName="fill-opacity" attributeType="XML" dur="1s" fill="freeze" from="0"
-			to="1" />
-		<use xlink:href="#title" />
-	</g>
+</svg>
