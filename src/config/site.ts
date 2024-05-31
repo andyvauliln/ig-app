@@ -1,26 +1,28 @@
-import { SiteConfig, ContactConfig } from "@/types"
+import { SiteConfig, ContactConfig } from "@/types/app"
 
 /* ====================
 [> WEBSITE CONFIG <]
 -- Fill the details about your website
  ==================== */
 
-const baseUrl = "https://nextlanding.rdev.pro"
+const baseUrl = "https://histoverse.org"
 
 export const siteConfig: SiteConfig = {
-  name: "Next Landing",
-  author: "redpangilinan",
+  name: "Histoverse",
+  author: "andyvaulin",
   description:
-    "Easy to setup, customizable, quick, and responsive landing page starter built with Next.js and shadcn/ui.",
+    "Learning History with AI,",
   keywords: [
-    "Next.js",
-    "React",
-    "Tailwind CSS",
-    "Radix UI",
-    "shadcn/ui",
-    "Landing Page",
-    "Template",
-    "Starter",
+    "History",
+    "Education",
+    "Web3",
+    "ICP",
+    "Blockchain",
+    "AI",
+    "AI Tutor",
+    "AI lesson creation",
+    "AI course creation",
+    "AI History",
   ],
   url: {
     base: baseUrl,
@@ -30,5 +32,5 @@ export const siteConfig: SiteConfig = {
 }
 
 export const contactConfig: ContactConfig = {
-  email: "janreynald.pangilinan@gmail.com",
+  email: "andy.vaulin@gmail.com",
 }
