@@ -1,8 +1,14 @@
+import { IconsType } from "@/components/icons" // Adjust the import as necessary
 import Image from "next/image"
 import HeadingText from "@/components/heading-text"
 import { featureCards } from "@/config/contents"
 import { Card, CardDescription, CardTitle } from "@/components/ui/card"
 import { Icons } from "@/components/icons"
+interface FeatureCard {
+  icon?: keyof IconsType;
+  text: string;
+  subtext: string;
+}
 
 export default function FeatureCards() {
   return (
@@ -14,7 +20,7 @@ export default function FeatureCards() {
           </HeadingText>
         ) : null}
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-          {featureCards.content.map((cards) => {
+          {featureCards.content.map((cards: FeatureCard) => {
             const Icon = Icons[cards.icon || "blank"]
 
             return (

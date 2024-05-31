@@ -1,4 +1,4 @@
-import { HeroHeader, ContentSection } from "@/types/contents"
+import { HeroHeader, ContentSection } from "@/types/app"
 
 
 export const heroHeader: HeroHeader = {

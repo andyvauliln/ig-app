@@ -25,7 +25,7 @@ import { LuSettings } from "react-icons/lu"
 
 export type IconKeys = keyof typeof icons
 
-type IconsType = {
+export type IconsType = {
   [key in IconKeys]: React.ElementType
 }
 

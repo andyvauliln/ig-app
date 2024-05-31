@@ -1,4 +1,4 @@
-import { AuthContext } from '@/components/auth';
+import { AuthContext } from '@/components/auth-provider';
 import { Backdrop } from '@/components/backdrop';
 import { Button } from '@/components/button';
 import { setDoc, uploadFile } from '@junobuild/core-peer';
