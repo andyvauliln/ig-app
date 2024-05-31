@@ -2,7 +2,7 @@ import { setDoc, uploadFile } from '@junobuild/core-peer';
 import { nanoid } from 'nanoid';
 import { authSubscribe, type User, type ListParams } from '@junobuild/core-peer';
 import { listDocs } from '@junobuild/core-peer';
-import type { Note, NoteData } from '@/types/note';
+import type { Note, NoteData } from '@/types/app';
 
 const key = nanoid();
 

@@ -1,6 +1,6 @@
 import { AuthContext } from '@/components/auth';
 import { Delete } from '@/components/delete';
-import type { Note, NoteData } from '@/types/note';
+import type { Note, NoteData } from '@/types/app';
 
 import { useContext, useEffect, useState } from 'react';
 import { getNotes } from '@/components/actions';

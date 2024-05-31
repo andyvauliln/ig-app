@@ -1,14 +1,14 @@
-import {Backdrop} from '@/components/backdrop';
-import type {Note} from '@/types/note';
-import {deleteAsset, deleteDoc} from '@junobuild/core-peer';
-import {useState} from 'react';
+import { Backdrop } from '@/components/backdrop';
+import type { Note } from '@/types/app';
+import { deleteAsset, deleteDoc } from '@junobuild/core-peer';
+import { useState } from 'react';
 
 interface DeleteProps {
   item: Note;
   reload: () => Promise<void>;
 }
 
-export const Delete = ({item, reload}: DeleteProps) => {
+export const Delete = ({ item, reload }: DeleteProps) => {
   const [inProgress, setInProgress] = useState(false);
 
   const delItem = async (doc: Note) => {
@@ -16,11 +16,11 @@ export const Delete = ({item, reload}: DeleteProps) => {
 
     try {
       const {
-        data: {url}
+        data: { url }
       } = doc;
 
       if (url !== undefined) {
-        const {pathname: fullPath} = new URL(url);
+        const { pathname: fullPath } = new URL(url);
 
         await deleteAsset({
           collection: 'images',
