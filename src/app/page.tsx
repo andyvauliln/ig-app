@@ -1,9 +1,10 @@
 'use client';
 
 import { useEffect } from 'react';
-import Hero from "@/components/pages/hero"
-import FeatureCards from "@/components/pages/feature-cards"
-import Features from "@/components/pages/features"
+import Hero from "@/components/pages/landing-page/hero"
+import FeatureCards from "@/components/pages/landing-page/feature-cards"
+import Features from "@/components/pages/landing-page/features"
+import "@/lib/_supressLogs";
 export default function Home() {
   console.log("Home")
 

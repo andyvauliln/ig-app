@@ -1,12 +1,12 @@
 
 "use client"
 
-import { LoadingScreen } from '@/components/loading-screen';
+import { LoadingScreen } from '@/components/layout/loading-screen';
 import { routes } from '@/config/route';
 import { User, authSubscribe, listDocs } from '@junobuild/core-peer';
 import { useRouter } from 'next/navigation';
 import { ReactNode, createContext, useEffect, useState } from 'react';
-import { getProfile } from '@/components/actions';
+import { getProfile } from '@/actions';
 
 export const AuthContext = createContext<{
   user: User | null | undefined;
@@ -25,10 +25,12 @@ export const AuthProvider = ({ children }: { children?: ReactNode }) => {
 
   useEffect(() => {
     const sub = authSubscribe((user: User | null) => {
+      console.log("USER PROVIDER", user)
       setUser(user);
       if (user) {
 
         getProfile(user).then((data: any) => {
+          console.log("USER PROFILE", data)
           const hasProfile = data.items_length > 0;
           setLoading(false);
           if (hasProfile) {
@@ -47,9 +49,9 @@ export const AuthProvider = ({ children }: { children?: ReactNode }) => {
   return (
     <AuthContext.Provider value={{ user, setLoading }}>
       {/* {user !== undefined && user !== null && <div>{children}</div>} */}
-      <div>{children}</div>
+      {children}
 
-      {loading && <LoadingScreen />}
+      {/* {loading && <LoadingScreen />} */}
     </AuthContext.Provider>
   );
 };

@@ -1,10 +1,10 @@
-import { AuthContext } from '@/components/auth-provider';
-import { Backdrop } from '@/components/backdrop';
-import { Button } from '@/components/button';
+import { AuthContext } from '@/components/layout/providers/auth-provider';
+import { Backdrop } from '@/components/layout/backdrop';
+import { Button } from '@/components/archive/button';
 import { setDoc, uploadFile } from '@junobuild/core-peer';
 import { nanoid } from 'nanoid';
 import { useContext, useEffect, useRef, useState } from 'react';
-import { createNote, uploadImage } from '@/components/actions';
+import { createNote, uploadImage } from '@/actions';
 
 export const Modal = () => {
   const [showModal, setShowModal] = useState<boolean>(false);

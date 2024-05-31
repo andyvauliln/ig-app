@@ -1,6 +1,6 @@
 import { IconsType } from "@/components/icons" // Adjust the import as necessary
 import Image from "next/image"
-import HeadingText from "@/components/heading-text"
+import HeadingText from "@/components/archive/heading-text"
 import { featureCards } from "@/config/contents"
 import { Card, CardDescription, CardTitle } from "@/components/ui/card"
 import { Icons } from "@/components/icons"

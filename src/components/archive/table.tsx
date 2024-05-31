@@ -1,9 +1,9 @@
-import { AuthContext } from '@/components/auth-provider';
-import { Delete } from '@/components/delete';
+import { AuthContext } from '@/components/layout/providers/auth-provider';
+import { Delete } from '@/components/archive/delete';
 import type { Note, NoteData } from '@/types/app';
 
 import { useContext, useEffect, useState } from 'react';
-import { getNotes } from '@/components/actions';
+import { getNotes } from '@/actions';
 
 export const Table = () => {
   const { user } = useContext(AuthContext);
