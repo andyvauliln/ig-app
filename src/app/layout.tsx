@@ -6,7 +6,7 @@ const jetBrainsMono = JetBrains_Mono({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Imortal Games',
-  description: 'Educational Web 3 Platform'
+  description: 'Educational AI Web 3 Platform'
 };
 
 export default function RootLayout({
@@ -17,7 +17,11 @@ export default function RootLayout({
 
   return (
     <html lang="en" className='dark'>
-      <body className={`${jetBrainsMono.className} bg-white dark:bg-black`}>{children}</body>
+      <body className={`${jetBrainsMono.className} bg-white dark:bg-black`}>
+        <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
