@@ -7,8 +7,8 @@ export default function robots(): MetadataRoute.Robots {
             allow: '/',
             disallow: '/private/',
         },
-        sitemap: 'https://mamabali.com/sitemap.xml',
-        host: 'mamabali.com',
+        sitemap: 'https://histoverse.org/sitemap.xml',
+        host: 'histoverse.org',
     }
 }
 
