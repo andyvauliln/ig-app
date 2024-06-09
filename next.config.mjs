@@ -1,4 +1,5 @@
 import { withJuno } from '@junobuild/nextjs-plugin';
+import flattenColorPalette from "tailwindcss/lib/util/flattenColorPalette.js"
 
 const isOnChain = process.env.NEXT_PUBLIC_IS_ONCHAIN === 'true';
 
@@ -28,11 +29,24 @@ const coreConfig = {
     eslint: {
         ignoreDuringBuilds: true,
     },
-    juno: { container: true }
+    juno: { container: true },
 
-
+    plugins: [
+        addVariablesForColors
+    ],
     // output: 'standalone'
 };
+
+function addVariablesForColors({ addBase, theme }) {
+    let allColors = flattenColorPalette(theme("colors"));
+    let newVars = Object.fromEntries(
+        Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+    );
+
+    addBase({
+        ":root": newVars,
+    });
+}
 
 const config = isOnChain ? withJuno(coreConfig) : { coreConfig };
 
