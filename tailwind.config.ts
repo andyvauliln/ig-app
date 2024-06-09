@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss';
+import colors from 'tailwindcss/colors';
 
 const config: Config = {
   content: [
@@ -6,23 +7,106 @@ const config: Config = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}'
   ],
-  darkMode: ["class"],
+  darkMode: 'class',
   theme: {
     extend: {
+      textShadow: (() => {
+        const shadows: Record<string, string> = {};
+        for (const [colorName, colorValue] of Object.entries(colors)) {
+          if (typeof colorValue === 'object') {
+            for (const [shade, hex] of Object.entries(colorValue)) {
+              shadows[`${colorName}-${shade}`] = `0px 0px 4px  ${hex}`;
+            }
+          } else {
+            shadows[colorName] = `0px 0px 6px  ${colorValue}`;
+          }
+        }
+        return shadows;
+      })(),
       screens: {
         tall: { raw: '(min-height: 800px)' }
       },
       animation: {
-        fade: 'fadeIn .25s ease-in-out'
-      },
+        fade: 'fadeIn .25s ease-in-out',
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+        shimmer: "shimmer 2s linear infinite",
+        scroll: "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
 
+      },
       keyframes: {
+        scroll: {
+          to: {
+            transform: "translate(calc(-50% - 0.5rem))",
+          },
+        },
+        shimmer: {
+          from: {
+            "backgroundPosition": "0 0"
+          },
+          to: {
+            "backgroundPosition": "-200% 0"
+          }
+        },
         fadeIn: {
           from: { opacity: '0' },
           to: { opacity: '1' }
-        }
-      }
-    }
+        },
+        "accordion-down": {
+          from: { height: '0' },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: '0' },
+        },
+      },
+      colors: {
+        inherit: 'inherit',
+        transparent: 'transparent',
+        current: 'currentColor',
+        black: 'rgb(0 0 0)',
+        white: 'rgb(255 255 255)',
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+      },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+      },
+    },
   },
   container: {
     center: true,
@@ -31,67 +115,7 @@ const config: Config = {
       "2xl": "1400px",
     },
   },
-  extend: {
-    colors: {
-      inherit: 'inherit',
-      transparent: 'transparent',
-      current: 'currentColor',
-      black: 'rgb(0 0 0)',
-      white: 'rgb(255 255 255)',
-      border: "hsl(var(--border))",
-      input: "hsl(var(--input))",
-      ring: "hsl(var(--ring))",
-      background: "hsl(var(--background))",
-      foreground: "hsl(var(--foreground))",
-      primary: {
-        DEFAULT: "hsl(var(--primary))",
-        foreground: "hsl(var(--primary-foreground))",
-      },
-      secondary: {
-        DEFAULT: "hsl(var(--secondary))",
-        foreground: "hsl(var(--secondary-foreground))",
-      },
-      destructive: {
-        DEFAULT: "hsl(var(--destructive))",
-        foreground: "hsl(var(--destructive-foreground))",
-      },
-      muted: {
-        DEFAULT: "hsl(var(--muted))",
-        foreground: "hsl(var(--muted-foreground))",
-      },
-      accent: {
-        DEFAULT: "hsl(var(--accent))",
-        foreground: "hsl(var(--accent-foreground))",
-      },
-      popover: {
-        DEFAULT: "hsl(var(--popover))",
-        foreground: "hsl(var(--popover-foreground))",
-      },
-      card: {
-        DEFAULT: "hsl(var(--card))",
-        foreground: "hsl(var(--card-foreground))",
-      },
-    },
-    borderRadius: {
-      lg: "var(--radius)",
-      md: "calc(var(--radius) - 2px)",
-      sm: "calc(var(--radius) - 4px)",
-    },
-    keyframes: {
-      "accordion-down": {
-        from: { height: 0 },
-        to: { height: "var(--radix-accordion-content-height)" },
-      },
-      "accordion-up": {
-        from: { height: "var(--radix-accordion-content-height)" },
-        to: { height: 0 },
-      },
-    },
-    animation: {
-      "accordion-down": "accordion-down 0.2s ease-out",
-      "accordion-up": "accordion-up 0.2s ease-out",
-    },
-  },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), require("tailwindcss-textshadow")],
 };
 export default config;
+
