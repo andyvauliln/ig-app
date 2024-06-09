@@ -6,6 +6,7 @@ import { AuthProvider } from "@/components/layout/providers/auth-provider";
 import { ICPProvider } from "@/components/layout/providers/icp-provider";
 import './globals.css';
 import "@/lib/_supressLogs";
+import { TracingBeam } from "@/components/ui/tracing-beam";
 
 const jetBrainsMono = JetBrains_Mono({ subsets: ['latin'] });
 
@@ -17,18 +18,20 @@ export default function RootLayout({
 
   return (
     <html lang="en" className='dark'>
-      <body className={`${jetBrainsMono.className} bg-white dark:bg-black`}>
-        <ICPProvider>
-          <AuthProvider>
-            <Navbar />
-            {/* <div className="relative isolate min-h-[100dvh]">
-              <main className="mx-auto max-w-screen-2xl py-16 px-8 md:px-24 tall:min-h-[calc(100dvh-128px)]">
+      <body className={`${jetBrainsMono.className} min-h-screen bg-white dark:bg-black w-[100vw] flex flex-col `}>
+        <TracingBeam className="px-6">
+          <ICPProvider>
+            <AuthProvider>
+              <Navbar />
+              {/* <div className="relative isolate min-h-[100dvh]"> */}
+              <main className="mx-auto  max-w-[100vw] py-2 px-2 flex-grow overflow-x-hidden">
                 {children}
               </main>
-              <Footer />
-            </div> */}
-          </AuthProvider>
-        </ICPProvider>
+              {/* <Footer /> */}
+              {/* </div> */}
+            </AuthProvider>
+          </ICPProvider>
+        </TracingBeam>
       </body>
     </html>
   );
