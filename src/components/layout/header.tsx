@@ -119,23 +119,14 @@ export function NavbarToggle({ navbar, setNavbar }: NavbarToggleProps) {
 
 function NavbarLinks({ navbar, handleClick }: NavbarLinksProps) {
   const pathname = usePathname()
-  console.log("PATHNAME", pathname)
   return (
     <div className={`flex items-center justify-center m-auto rounded-md p-4`}>
-      <ul className="buttons scale-100 md:scale-[1.5] lg:scale-[2]">
+      <ul className="buttons scale-[1.2] md:scale-[1.5] lg:scale-[2]">
         {navLinks.map((link) => (
           link.path !== '/' || pathname !== '/' ? (
-            <NavButton3 key={link.route} path={link.path} isActive={pathname === link.path}>
+            <NavButton key={link.route} path={link.path} isActive={pathname === link.path}>
               {link.route}
-            </NavButton3>
-            // <li key={link.route} className="flex items-center">
-            //   <Link
-            //     href={link.path}
-            //     onClick={handleClick}
-            //   >
-            //     {link.route}
-            //   </Link>
-            // </li>
+            </NavButton>
           ) : null
         ))}
       </ul>
@@ -152,16 +143,16 @@ function CompanyName() {
   )
 }
 
-function NavButton2({ children, path }: { children: React.ReactNode, path: string }) {
-  return (
-    <Link href={path} className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
-      <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
-      <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl">
-        {children}
-      </span>
-    </Link>
-  );
-}
+// function NavButton2({ children, path }: { children: React.ReactNode, path: string }) {
+//   return (
+//     <Link href={path} className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+//       <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
+//       <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl">
+//         {children}
+//       </span>
+//     </Link>
+//   );
+// }
 // function NavButton({ children, path }: { children: React.ReactNode, path: string }) {
 //   return (
 //     <Link href={path} className="inline-flex h-12 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
@@ -173,15 +164,11 @@ function NavButton2({ children, path }: { children: React.ReactNode, path: strin
 //   );
 // }
 
-function NavButton3({ children, path, isActive }: { children: React.ReactNode, path: string, isActive: boolean }) {
-  return (
-    <a href={path} className={`${isActive ? "active" : ""}`}>
-      {children}
-    </a>
-  )
-}
+// function NavButton({ children, path, isActive }: { children: React.ReactNode, path: string, isActive: boolean }) {
+//   return (
+//     <a href={path} className={`${isActive ? "active" : ""}`}>
+//       {children}
+//     </a>
+//   )
+// }
 
-
-{/* <a class='glowBtn'>Button</a>
-    <a class='glowBtn hover'>Hover</a>
-    <a class='glowBtn active'>Active</a> */}

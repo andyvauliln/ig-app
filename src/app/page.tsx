@@ -10,8 +10,6 @@ import AboutSection from "@/components/layout/section2"
 import "@/lib/_supressLogs";
 
 export default function Home() {
-  console.log("Home")
-
 
   return (
     <>

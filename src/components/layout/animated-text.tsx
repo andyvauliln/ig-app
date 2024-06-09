@@ -16,7 +16,6 @@ export default function AnimatedText({
 }) {
     const [scope, animate] = useAnimate();
     let wordsArray = words.split(" ");
-    console.log(className);
 
     useEffect(() => {
         const timeoutId = setTimeout(() => {

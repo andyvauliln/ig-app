@@ -7,7 +7,6 @@ import type { Note, NoteData } from '@/types/app';
 const key = nanoid();
 
 export const createNote = async (inputText: string, url?: string) => {
-    console.log('createNote', inputText, url, process.env.NEXT_PUBLIC_IS_ONCHAIN);
     if (process.env.NEXT_PUBLIC_IS_ONCHAIN === 'true') {
         await setDoc({
             collection: 'notes',

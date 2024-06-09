@@ -10,7 +10,6 @@ console.error = (...args) => {
 };
 
 console.warn = (...args) => {
-    console.log("TESTTTSETSE")
     if (args[0].includes("Warning: Accessing element.ref")) {
         return;
     }
