@@ -1,19 +1,28 @@
 'use client';
 
 import { useEffect } from 'react';
+import Hero2 from "@/components/pages/landing-page/hero2"
 import Hero from "@/components/pages/landing-page/hero"
 import FeatureCards from "@/components/pages/landing-page/feature-cards"
 import Features from "@/components/pages/landing-page/features"
+import HeroSection from "@/components/layout/section1"
+import AboutSection from "@/components/layout/section2"
 import "@/lib/_supressLogs";
+
 export default function Home() {
   console.log("Home")
 
 
   return (
     <>
-      <Hero />
+      <HeroSection />
+      <AboutSection />
+      {/* <Hero2 />
+      <Hero /> */}
+      {/* <Hero />
+     
       <FeatureCards />
-      <Features />
+      <Features /> */}
     </>
   )
 }
