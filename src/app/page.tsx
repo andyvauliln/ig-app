@@ -1,13 +1,11 @@
 'use client';
-
-import { useEffect } from 'react';
-import Hero2 from "@/components/archive/hero2"
-import Hero from "@/components/archive/hero"
-import FeatureCards from "@/components/archive/feature-cards"
-import Features from "@/components/archive/features"
+"use client"
 import HeroSection from "@/components/pages/landing-page/section-hero"
 import AboutSection from "@/components/pages/landing-page/section-about"
 import AirdropSection from "@/components/pages/landing-page/section-airdrop"
+import ContactForm from "@/components/pages/landing-page/section-contacts";
+import InvestmentSection from "@/components/pages/landing-page/section-investment";
+import PartnersSection from "@/components/pages/landing-page/section-partners";
 import "@/lib/_supressLogs";
 
 export default function Home() {
@@ -17,12 +15,9 @@ export default function Home() {
       <HeroSection />
       <AboutSection />
       <AirdropSection />
-      {/* <Hero2 />
-      <Hero /> */}
-      {/* <Hero />
-     
-      <FeatureCards />
-      <Features /> */}
+      <PartnersSection />
+      <ContactForm />
+      <InvestmentSection />
     </>
   )
 }

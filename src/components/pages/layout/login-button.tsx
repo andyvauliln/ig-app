@@ -1,3 +1,4 @@
+"use client"
 import { signIn } from '@junobuild/core-peer';
 
 export function Login() {

@@ -1,3 +1,4 @@
+"use client"
 import type { Metadata } from 'next';
 import { JetBrains_Mono } from 'next/font/google';
 import Navbar from "@/components/pages/layout/header"
@@ -27,7 +28,7 @@ export default function RootLayout({
               <main className="mx-auto  max-w-[100vw] py-2 px-2 flex-grow overflow-x-hidden">
                 {children}
               </main>
-              {/* <Footer /> */}
+              <Footer />
               {/* </div> */}
             </AuthProvider>
           </ICPProvider>

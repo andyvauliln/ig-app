@@ -1,9 +1,5 @@
 import { SiteConfig, ContactConfig } from "@/types/app"
 
-/* ====================
-[> WEBSITE CONFIG <]
--- Fill the details about your website
- ==================== */
 
 const baseUrl = "https://histoverse.org"
 
@@ -26,7 +22,7 @@ export const siteConfig: SiteConfig = {
   ],
   url: {
     base: baseUrl,
-    author: "https://redpangilinan.live",
+    author: "Andrei Vaulin",
   },
   ogImage: `${baseUrl}/og.jpg`,
 }
