@@ -121,7 +121,7 @@ function NavbarLinks({ navbar, handleClick }: NavbarLinksProps) {
   const pathname = usePathname()
   return (
     <div className={`flex items-center justify-center m-auto rounded-md p-4`}>
-      <ul className="buttons scale-[1.2] md:scale-[1.5] lg:scale-[2]">
+      <ul className="buttons scale-[1.2] md:scale-[1.6] lg:scale-[2]">
         {navLinks.map((link) => (
           link.path !== '/' || pathname !== '/' ? (
             <NavButton key={link.route} path={link.path} isActive={pathname === link.path}>
@@ -164,11 +164,11 @@ function CompanyName() {
 //   );
 // }
 
-// function NavButton({ children, path, isActive }: { children: React.ReactNode, path: string, isActive: boolean }) {
-//   return (
-//     <a href={path} className={`${isActive ? "active" : ""}`}>
-//       {children}
-//     </a>
-//   )
-// }
+function NavButton({ children, path, isActive }: { children: React.ReactNode, path: string, isActive: boolean }) {
+  return (
+    <a href={path} className={`${isActive ? "active" : ""}`}>
+      {children}
+    </a>
+  )
+}
 

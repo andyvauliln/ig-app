@@ -7,6 +7,7 @@ import FeatureCards from "@/components/pages/landing-page/feature-cards"
 import Features from "@/components/pages/landing-page/features"
 import HeroSection from "@/components/layout/section1"
 import AboutSection from "@/components/layout/section2"
+import AirdropSection from "@/components/layout/section3"
 import "@/lib/_supressLogs";
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
     <>
       <HeroSection />
       <AboutSection />
+      <AirdropSection />
       {/* <Hero2 />
       <Hero /> */}
       {/* <Hero />
