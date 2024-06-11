@@ -1,5 +1,4 @@
 "use client"
-import type { Metadata } from 'next';
 import { JetBrains_Mono } from 'next/font/google';
 import Navbar from "@/components/pages/layout/header"
 import Footer from "@/components/pages/layout/footer"
@@ -24,12 +23,10 @@ export default function RootLayout({
           <ICPProvider>
             <AuthProvider>
               <Navbar />
-              {/* <div className="relative isolate min-h-[100dvh]"> */}
               <main className="mx-auto  max-w-[100vw] py-2 px-2 flex-grow overflow-x-hidden">
                 {children}
               </main>
               <Footer />
-              {/* </div> */}
             </AuthProvider>
           </ICPProvider>
         </TracingBeam>

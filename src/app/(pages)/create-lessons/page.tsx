@@ -1,17 +1,17 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ChevronLeftIcon } from "../../../components/pages/create-lessons-page/Icons";
+import { ChevronLeftIcon } from "@/components/pages/create-lessons-page/Icons";
 
-import ProductDetailsCard from "../../../components/pages/create-lessons-page/ProductDetailsCard";
-import ProductCategoryCard from "../../../components/pages/create-lessons-page/ProductCategoryCard";
-import ProductPricingCard from "../../../components/pages/create-lessons-page/ProductPricingCard";
-import ProductStockCard from "../../../components/pages/create-lessons-page/ProductStockCard";
-import ArchiveProductCard from "../../../components/pages/create-lessons-page/ArchiveProductCard";
-import ProductImagesCard from "../../../components/pages/create-lessons-page/ProductImagesCard";
-import Header from "../../../components/pages/create-lessons-page/Header";
-import Sidebar from "../../../components/pages/create-lessons-page/Sidebar";
+import ProductDetailsCard from "@/components/pages/create-lessons-page/ProductDetailsCard";
+import ProductCategoryCard from "@/components/pages/create-lessons-page/ProductCategoryCard";
+import ProductPricingCard from "@/components/pages/create-lessons-page/ProductPricingCard";
+import ProductStockCard from "@/components/pages/create-lessons-page/ProductStockCard";
+import ArchiveProductCard from "@/components/pages/create-lessons-page/ArchiveProductCard";
+import ProductImagesCard from "@/components/pages/create-lessons-page/ProductImagesCard";
+import Header from "@/components/pages/create-lessons-page/Header";
+import Sidebar from "@/components/pages/create-lessons-page/Sidebar";
 
-export default function Dashboard() {
+export default function CreateLessonPage() {
     return (
         <div className="flex min-h-screen w-full flex-col bg-muted/40">
             <Sidebar />
