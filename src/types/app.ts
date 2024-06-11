@@ -1,5 +1,5 @@
 import type { Doc } from '@junobuild/core-peer';
-import { IconKeys } from "@/components/icons"
+import { IconKeys } from "@/components/pages/common/icons"
 
 export interface NoteData {
   text: string;

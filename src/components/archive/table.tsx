@@ -1,4 +1,4 @@
-import { AuthContext } from '@/components/layout/providers/auth-provider';
+import { AuthContext } from '@/components/pages/layout/providers/auth-provider';
 import { Delete } from '@/components/archive/delete';
 import type { Note, NoteData } from '@/types/app';
 

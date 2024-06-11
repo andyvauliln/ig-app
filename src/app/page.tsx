@@ -1,13 +1,13 @@
 'use client';
 
 import { useEffect } from 'react';
-import Hero2 from "@/components/pages/landing-page/hero2"
-import Hero from "@/components/pages/landing-page/hero"
-import FeatureCards from "@/components/pages/landing-page/feature-cards"
-import Features from "@/components/pages/landing-page/features"
-import HeroSection from "@/components/layout/section1"
-import AboutSection from "@/components/layout/section2"
-import AirdropSection from "@/components/layout/section3"
+import Hero2 from "@/components/archive/hero2"
+import Hero from "@/components/archive/hero"
+import FeatureCards from "@/components/archive/feature-cards"
+import Features from "@/components/archive/features"
+import HeroSection from "@/components/pages/landing-page/section-hero"
+import AboutSection from "@/components/pages/landing-page/section-about"
+import AirdropSection from "@/components/pages/landing-page/section-airdrop"
 import "@/lib/_supressLogs";
 
 export default function Home() {

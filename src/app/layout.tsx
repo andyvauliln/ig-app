@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import { JetBrains_Mono } from 'next/font/google';
-import Navbar from "@/components/layout/header"
-import Footer from "@/components/layout/footer"
-import { AuthProvider } from "@/components/layout/providers/auth-provider";
-import { ICPProvider } from "@/components/layout/providers/icp-provider";
+import Navbar from "@/components/pages/layout/header"
+import Footer from "@/components/pages/layout/footer"
+import { AuthProvider } from "@/components/pages/layout/providers/auth-provider";
+import { ICPProvider } from "@/components/pages/layout/providers/icp-provider";
 import './globals.css';
 import "@/lib/_supressLogs";
 import { TracingBeam } from "@/components/ui/tracing-beam";

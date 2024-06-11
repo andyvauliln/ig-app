@@ -1,7 +1,7 @@
 import Image from "next/image"
 import HeadingText from "@/components/archive/heading-text"
 import { features } from "@/config/contents"
-import { Icons } from "@/components/icons"
+import { Icons } from "@/components/pages/common/icons"
 
 export default function Features() {
   return (

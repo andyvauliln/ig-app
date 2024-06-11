@@ -7,12 +7,12 @@ export default function AnimatedText({
     words,
     className,
     delay = 0.2,
-    initialDelay = 0, // Add an initial delay prop
+    initialDelay = 0,
 }: {
     words: string;
     className?: string;
     delay?: number;
-    initialDelay?: number; // Add an initial delay prop type
+    initialDelay?: number;
 }) {
     const [scope, animate] = useAnimate();
     let wordsArray = words.split(" ");
@@ -29,9 +29,8 @@ export default function AnimatedText({
                     delay: stagger(delay),
                 }
             );
-        }, initialDelay * 1000); // Convert initialDelay to milliseconds
-
-        return () => clearTimeout(timeoutId); // Cleanup timeout on unmount
+        }, initialDelay * 1000);
+        return () => clearTimeout(timeoutId);
     }, [scope.current, delay, initialDelay]);
 
     const renderWords = () => {

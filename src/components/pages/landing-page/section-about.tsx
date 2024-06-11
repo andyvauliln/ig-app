@@ -1,8 +1,8 @@
 
-import { InfiniteMovingCards } from "./animated-slider";
+import { InfiniteMovingCards } from "../common/animated-slider";
 import Image from "next/image";
 import { Amatic_SC } from 'next/font/google';
-import AnimatedText from './animated-text';
+import AnimatedText from '../common/animated-text';
 import { motion } from "framer-motion";
 import { Anton } from "next/font/google"
 

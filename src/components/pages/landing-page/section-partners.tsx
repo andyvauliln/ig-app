@@ -1,12 +1,12 @@
 import React from 'react';
-import { BackgroundGradient } from './glowing-card';
+import { BackgroundGradient } from '../common/glowing-card';
 import { LampContainer } from './lamp';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Anton } from "next/font/google"
 import { Amatic_SC } from 'next/font/google';
-import AnimatedText from './animated-text';
+import AnimatedText from '../common/animated-text';
 import { motion } from "framer-motion";
 import Image from 'next/image'
 

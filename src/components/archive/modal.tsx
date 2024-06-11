@@ -1,5 +1,5 @@
-import { AuthContext } from '@/components/layout/providers/auth-provider';
-import { Backdrop } from '@/components/layout/backdrop';
+import { AuthContext } from '@/components/pages/layout/providers/auth-provider';
+import { Backdrop } from '@/components/archive/backdrop';
 import { Button } from '@/components/archive/button';
 import { setDoc, uploadFile } from '@junobuild/core-peer';
 import { nanoid } from 'nanoid';

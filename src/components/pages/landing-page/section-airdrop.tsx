@@ -1,13 +1,14 @@
 import React from 'react';
-import { BackgroundGradient } from './glowing-card';
+import { BackgroundGradient } from '../common/glowing-card';
 import { LampContainer } from './lamp';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Anton } from "next/font/google"
 import { Amatic_SC } from 'next/font/google';
-import AnimatedText from './animated-text';
+import AnimatedText from '../common/animated-text';
 import { motion } from "framer-motion";
+import Image from 'next/image'
 
 const anton = Anton({ subsets: ["latin"], weight: "400", style: "normal" });
 const amaticSC = Amatic_SC({ subsets: ["latin"], weight: "400", style: "normal" });
@@ -19,24 +20,14 @@ export default function HeroSection() {
             <div className="container lg:py-10 overflow-hidden">
                 {/* Grid */}
                 <div className="grid lg:grid-cols-8 lg:gap-x-8 xl:gap-x-12 lg:items-center">
-                    <LampContainer className='w-full lg:col-span-4 flex flex-col'>
-                        <CompanyName />
-                        <Slogan key="slogan" />
-                        <Author key="author" />
-                        <div className="items-center mt-10">
-                            <GradientButton />
-                        </div>
-                    </LampContainer>
+                    <div className='text-white'>
+                        Earn Histocred Token
+                        by Contributing to Our
+                        Web3 Community.
+                    </div>
                     {/* End Col */}
                     <div className="lg:col-span-4 mt-10 lg:mt-0 w-full rounded-xl h-full min-h-[500px]">
-                        <iframe
-                            className="w-full h-full"
-                            src="https://www.youtube.com/embed/jVjZ3bHQuhA"
-                            frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen
-                            title="YouTube Video"
-                        ></iframe>
+                        <Image src="/home_page/infinity_airdrop.png" className="rounded-lg" alt="Background Image" width={250} height={250} />
                     </div>
                     {/* End Col */}
                 </div>

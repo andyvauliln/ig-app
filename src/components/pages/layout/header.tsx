@@ -2,16 +2,16 @@
 
 import { useState, useEffect, useContext } from "react"
 import Link from "next/link"
-import { ModeToggle } from "@/components/layout/theme-button"
+import { ModeToggle } from "@/components/archive/theme-button"
 import { siteConfig } from "@/config/site"
 import { navLinks } from "@/lib/links"
 import { settings } from "@/config/settings"
 import { Dispatch, SetStateAction } from "react"
-import { AuthContext } from '@/components/layout/providers/auth-provider';
-import { Login } from '@/components/layout/login-button';
-import { Logout } from '@/components/layout/logout-button';
+import { AuthContext } from '@/components/pages/layout/providers/auth-provider';
+import { Login } from '@/components/pages/layout/login-button';
+import { Logout } from '@/components/pages/layout/logout-button';
 import Image from "next/image"
-import AnimatedLogo from "@/components/layout/animated-logo"
+import AnimatedLogo from "@/components/pages/common/animated-logo"
 import { Anton } from "next/font/google"
 import { usePathname } from 'next/navigation'
 

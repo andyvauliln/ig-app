@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { Icons } from "@/components/icons"
+import { Icons } from "@/components/pages/common/icons"
 import { useTheme } from "next-themes"
 
 import { Button } from "@/components/ui/button"

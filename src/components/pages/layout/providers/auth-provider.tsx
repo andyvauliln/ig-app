@@ -1,7 +1,7 @@
 
 "use client"
 
-import { LoadingScreen } from '@/components/layout/loading-screen';
+import { LoadingScreen } from '@/components/pages/layout/loading';
 import { routes } from '@/config/route';
 import { User, authSubscribe, listDocs } from '@junobuild/core-peer';
 import { useRouter } from 'next/navigation';

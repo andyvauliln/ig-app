@@ -28,12 +28,10 @@ export const InfiniteMovingCards = ({
         addAnimation();
     }, []);
     const [start, setStart] = useState(false);
-    console.log("values", start, direction, speed, items, pauseOnHover)
     function addAnimation() {
         console.log("addAnimation", containerRef.current, scrollerRef.current)
         if (containerRef.current && scrollerRef.current) {
             const scrollerContent = Array.from(scrollerRef.current.children);
-            console.log("scrollerContent", scrollerContent)
 
             scrollerContent.forEach((item) => {
                 const duplicatedItem = item.cloneNode(true);
@@ -62,10 +60,8 @@ export const InfiniteMovingCards = ({
                 );
             }
         }
-        console.log("getDirection2", containerRef.current)
     };
     const getSpeed = () => {
-        console.log("getSpeed1", containerRef.current)
         if (containerRef.current) {
             if (speed === "fast") {
                 containerRef.current.style.setProperty("--animation-duration", "20s");
@@ -75,7 +71,6 @@ export const InfiniteMovingCards = ({
                 containerRef.current.style.setProperty("--animation-duration", "80s");
             }
         }
-        console.log("getSpeed2", containerRef.current)
     };
     return (
         <div
