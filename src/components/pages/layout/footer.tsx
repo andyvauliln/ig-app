@@ -9,8 +9,8 @@ export default function Footer() {
       <div className="mx-auto w-full max-w-screen-xl p-6 md:py-8">
         <div className="sm:flex sm:items-center sm:justify-between">
           <Link href="/">
-            <h1 className="mb-2 text-2xl font-bold sm:mb-0">
-              {siteConfig.name}
+            <h1 className="mb-2 text-2xl text-white underline font-bold sm:mb-0">
+              Light Paper
             </h1>
           </Link>
           <ul className="mb-6 flex flex-wrap items-center text-primary opacity-60 sm:mb-0">
@@ -23,7 +23,7 @@ export default function Footer() {
             ))}
           </ul>
         </div>
-        <hr className="my-6 text-muted-foreground sm:mx-auto lg:my-8" />
+        <hr className="my-6 bg-teal-400 text-[#18CCFC] sm:mx-auto lg:my-8" />
         <span className="block text-sm text-muted-foreground sm:text-center">
           © {new Date().getFullYear()}{" "}
           <a
@@ -31,7 +31,7 @@ export default function Footer() {
             href="https://redpangilinan.live/"
             className="hover:underline"
           >
-            Red Pangilinan
+            Histoverse
           </a>
           . All Rights Reserved.
         </span>

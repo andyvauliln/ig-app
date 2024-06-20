@@ -10,6 +10,7 @@ export const siteConfig: SiteConfig = {
     "Learning History with AI,",
   keywords: [
     "History",
+    "Interactive Lessons",
     "Education",
     "Web3",
     "ICP",
@@ -18,7 +19,7 @@ export const siteConfig: SiteConfig = {
     "AI Tutor",
     "AI lesson creation",
     "AI course creation",
-    "AI History",
+    "AI History Lessons",
   ],
   url: {
     base: baseUrl,

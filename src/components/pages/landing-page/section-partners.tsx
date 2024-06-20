@@ -6,7 +6,7 @@ export default function PartnersSection() {
     return (
         <>
             <div className="container flex flex-col lg:py-10 overflow-hidden">
-                <h2>Partners * Inverstors * Advisors</h2>
+                <h2 className='text-white'>Partners * Inverstors * Advisors</h2>
                 <div className='w-full p-4 space-x-4'>
                     <Image
                         src="/imortal_games_logo.png"
