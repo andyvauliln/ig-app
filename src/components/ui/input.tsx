@@ -3,7 +3,11 @@ import * as React from "react"
 import { cn } from "@/lib/utils"
 
 export interface InputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {}
+  extends React.InputHTMLAttributes<HTMLInputElement> { }
+
+export interface TextAreaProps
+  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> { }
+
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({ className, type, ...props }, ref) => {
@@ -22,4 +26,30 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
 )
 Input.displayName = "Input"
 
-export { Input }
+export { Input, GradientInput, GradientTextArea }
+
+const GradientInput = React.forwardRef<HTMLInputElement, InputProps>(
+  ({ className, placeholder, type = "text", ...props }, ref) => {
+    return (
+      <div className="my-4 p-[1.5px] rounded-md max-w-sm bg-gradient-to-r via-sky-400 from-purple-500 to-purple-500">
+        {/* <label htmlFor="name" className="sr-only">Name</label> */}
+        <input placeholder={placeholder}  {...props} ref={ref} className="px-3 py-2 w-full flex h-10 text-sm  ring-offset-background rounded-md bg-background text-muted-foreground placeholder:text-muted-foreground focus:outline-none disabled:cursor-not-allowed disabled:opacity-50" type={type} placeholder="Enter Your Name" />
+      </div>
+    )
+  }
+)
+
+const GradientTextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
+  ({ className, placeholder, ...props }, ref) => {
+    return (
+      <div className="my-4 p-[1.5px] rounded-md max-w-sm bg-gradient-to-r via-sky-400 from-purple-500 to-purple-500">
+        <textarea
+          className="px-3 py-2 w-full flex h-40 text-sm ring-offset-background rounded-md bg-background text-muted-foreground placeholder:text-muted-foreground focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
+          placeholder={placeholder}
+          ref={ref}
+          {...props}
+        />
+      </div>
+    )
+  }
+)

@@ -53,7 +53,7 @@ export default function AnimatedText({
     return (
         <div className={cn("font-bold", className)}>
             <div className="mt-4">
-                <div className="text-2xl leading-snug tracking-wide">
+                <div className="leading-snug tracking-wide">
                     {renderWords()}
                 </div>
             </div>

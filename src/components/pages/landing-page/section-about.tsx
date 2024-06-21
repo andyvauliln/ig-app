@@ -5,8 +5,9 @@ import Image from "next/image";
 import { Amatic_SC } from 'next/font/google';
 import AnimatedText from '../common/animated-text';
 import { Anton } from "next/font/google"
+import { Bebas_Neue } from "next/font/google"
 
-const anton = Anton({ subsets: ["latin"], weight: "400", style: "normal" });
+const bebasNeue = Bebas_Neue({ subsets: ["latin"], weight: "400", style: "normal" });
 const amaticSC = Amatic_SC({ subsets: ["latin"], weight: "400", style: "normal" });
 
 
@@ -29,9 +30,10 @@ export default function AboutSection() {
     return (
         <div className="relative h-[100vh]">
             <div className="absolute inset-0 flex items-center justify-center z-30">
-                <div className="relative w-[70%] h-1/2 rounded-lg shadow-lg shadow-gray-900">
-                    <Image src="/images/bg_paper.png" className=" rounded-lg" alt="Background Image" fill style={{ objectFit: 'cover' }} />
+                <div className="relative w-full h-full rounded-lg">
+
                     <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 p-10 rounded shadow-lg">
+                        <AboutTitle />
                         <AboutText />
                     </div>
                 </div>
@@ -42,15 +44,16 @@ export default function AboutSection() {
 }
 
 function AboutTitle() {
-    return <h1 className={`${anton.className} text-2xl mb-4 font-bold text-white opacity-85`}>From Gaming to Education: The Birth of Histoverse
+    return <h1 className={`${bebasNeue.className} text-yellow-500 mt-8 text-xl lg:text-4xl text-center`}>From Gaming to Education: The Birth of Histoverse
     </h1>
 }
 
 function AboutText() {
     return (
-        <AnimatedText key="company-description"
-            words='Founded by Ole, who discovered the power of story-driven games to connect with his autistic son, Immortal Games pivoted from casual gaming to revolutionizing history education. Early 2023 saw the birth of our MVP, validating our innovative vision. Recognizing blockchains potential, we embraced Web3 to democratize history education, creating a transparent, censorship-resistant platform. Histoverse combines immersive storytelling with interactive learning, bringing historical narratives to life..'
-            className={`${amaticSC.className} text-black mt-16 font-extrabold text-2xl lg:text-4xl text-center`} />
+        <div key="company-description"
+            className={`${amaticSC.className} text-white opacity-85 mt-16 font-extrabold text-2xl lg:text-4xl text-center`} >
+            Founded by Ole, who discovered the power of story-driven games to connect with his autistic son, Immortal Games pivoted from casual gaming to revolutionizing history education. Early 2023 saw the birth of our MVP, validating our innovative vision. Recognizing blockchains potential, we embraced Web3 to democratize history education, creating a transparent, censorship-resistant platform. Histoverse combines immersive storytelling with interactive learning, bringing historical narratives to life..
+        </div>
     )
 }
 

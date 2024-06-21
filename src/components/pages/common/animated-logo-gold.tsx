@@ -1,193 +1,48 @@
 "use client"
+import { useEffect, useState } from 'react';
+import { cn } from '@/lib/utils';
 
-import { useState, useEffect, useContext } from "react"
-import Link from "next/link"
-import { ModeToggle } from "@/components/archive/theme-button"
-import { siteConfig } from "@/config/site"
-import { navLinks } from "@/lib/links"
-import { settings } from "@/config/settings"
-import { Dispatch, SetStateAction } from "react"
-import { AuthContext } from '@/components/pages/layout/providers/auth-provider';
-import { Login } from '@/components/pages/layout/login-button';
-import { Logout } from '@/components/pages/layout/logout-button';
-import Image from "next/image"
-import AnimatedLogo from "@/components/pages/common/animated-logo"
-import { Anton } from "next/font/google"
-import { usePathname } from 'next/navigation'
+const AnimatedLogoGold = ({ className }: { className: string }) => {
+	const [animationStart, setAnimationStart] = useState(false);
+	useEffect(() => {
+		const timer = setTimeout(() => {
+			setAnimationStart(true);
+		}, 1500); // 1 second delay
 
-const anton = Anton({ subsets: ["latin"], weight: "400", style: "normal" });
-interface NavbarLinksProps {
-  navbar: boolean
-  handleClick: () => void
-}
+		return () => clearTimeout(timer);
+	}, []);
 
-interface NavbarToggleProps {
-  navbar: boolean
-  setNavbar: Dispatch<SetStateAction<boolean>>
-}
-
-export default function Navbar() {
-  const [navbar, setNavbar] = useState(false)
-  const { user } = useContext(AuthContext);
-  console.log("USER HEADER", user)
-
-  const handleClick = async () => {
-    setNavbar(false)
-  }
-
-  useEffect(() => {
-    if (navbar) {
-      document.body.style.overflow = "hidden"
-    } else {
-      document.body.style.overflow = "auto"
-    }
-  }, [navbar])
-
-  return (
-    <header className="select-none">
-      <nav className="mx-auto justify-between px-4 md:flex md:items-center md:px-8 lg:max-w-7xl">
-        <div className="flex items-center justify-between py-3 md:block md:py-5">
-          <div className="flex items-center w-full">
-            <Link href="/" className="flex items-center space-x-2 lg:hover:scale-[1.10]">
-              <Logo />
-              {/* <CompanyName /> */}
-            </Link>
-          </div>
-          <div className="flex gap-1 md:hidden">
-            {user ? <Logout /> : <Login />}
-          </div>
-          {/*
-            {user ? <Logout /> : <Login />}
-            <NavbarToggle navbar={navbar} setNavbar={setNavbar} />
-         */}
-        </div>
-        <NavbarLinks navbar={navbar} handleClick={handleClick} />
-        <div className="hidden md:flex items-center space-x-4">
-          {!navbar && user ? <Logout /> : <Login />}
-          {/* {settings.themeToggleEnabled && (
-            <div className="hidden md:block">
-              <ModeToggle />
-            </div>
-          )} */}
-        </div>
-      </nav>
-      <div className="w-full h-10 relative">
-
-        <div className="absolute top-0 bg-gradient-to-r from-transparent via-yellow-500 to-transparent h-px w-full" />
-        <div className="absolute inset-x-[25%] top-0 bg-gradient-to-r from-transparent via-yellow-500 to-transparent h-[5px] w-1/2 blur-sm" />
-        <div className="absolute inset-x-[25%] top-0 bg-gradient-to-r from-transparent via-yellow-600 to-transparent h-[5px] w-1/2 blur-sm" />
-      </div>
-    </header>
-  )
-}
-
-export function NavbarToggle({ navbar, setNavbar }: NavbarToggleProps) {
-  return (
-    <button
-      className="ml-2 rounded-md p-2 text-azure outline-none border-[3px] border-purple-500"
-      aria-label="Hamburger Menu"
-      onClick={() => setNavbar(!navbar)}
-    >
-      {navbar ? (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6"
-          viewBox="0 0 20 20"
-          fill="rgb(168 85 247)"
-        >
-          <path
-            fillRule="evenodd"
-            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-            clipRule="evenodd"
-          />
-        </svg>
-      ) : (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="rgb(168 85 247)"
-          strokeWidth={2}
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M4 6h16M4 12h16M4 18h16"
-          />
-        </svg>
-      )}
-    </button>
-  )
-}
-
-function NavbarLinks({ navbar, handleClick }: NavbarLinksProps) {
-  const pathname = usePathname()
-  return (
-    <div className={`flex flex-col items-center justify-center m-auto rounded-md p-4`}>
-      <ul className="buttons scale-[1.2] md:scale-[1.6] lg:scale-[2]">
-        {navLinks.map((link) => (
-          link.path !== '/' || pathname !== '/' ? (
-            <NavButton key={link.route} path={link.path} isActive={pathname === link.path}>
-              {link.route}
-            </NavButton>
-          ) : null
-        ))}
-      </ul>
-
-    </div>
-  )
-}
-
-function CompanyName() {
-  return (
-    <h1 className={`${anton.className} mt-4 bg-gradient-to-br from-slate-300 to-slate-500  bg-clip-text text-center text-6xl font-medium tracking-tight text-transparent md:text-7xl`}>
-      Histoverse
-    </h1>
-
-  )
-}
-
-// function NavButton2({ children, path }: { children: React.ReactNode, path: string }) {
-//   return (
-//     <Link href={path} className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
-//       <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
-//       <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl">
-//         {children}
-//       </span>
-//     </Link>
-//   );
-// }
-// function NavButton({ children, path }: { children: React.ReactNode, path: string }) {
-//   return (
-//     <Link href={path} className="inline-flex h-12 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
-//       <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
-//       <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl">
-//         {children}
-//       </span>
-//     </Link>
-//   );
-// }
-
-function NavButton({ children, path, isActive }: { children: React.ReactNode, path: string, isActive: boolean }) {
-  return (
-    <a href={path} className={`${isActive ? "active" : ""}`}>
-      {children}
-    </a>
-  )
-}
-
-function Logo() {
-  return (
-    <svg version="1.1" width="50" height="50" fill="url(#imgPattern)" id="logo" xmlns="http://www.w3.org/2000/svg"
-      xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 2100 2100"
-      xmlSpace="preserve">
-      <defs>
-        <pattern id="imgPattern" patternUnits="objectBoundingBox" width="1" height="1">
-          <image href="/old_gold.jpeg" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" />
-        </pattern>
-      </defs>
-      <path x="10" y="10" id="first-circle" d="
+	return (
+		animationStart &&
+		<svg version="1.1" className={cn(className)} width="100%" fill="url(#imgPattern)" id="logo" xmlns="http://www.w3.org/2000/svg"
+			xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 2100 2100"
+			xmlSpace="preserve">
+			<defs>
+				<pattern id="imgPattern" patternUnits="objectBoundingBox" width="" height="">
+					<image href="/old_gold.jpeg" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" />
+				</pattern>
+				<filter id="gold-glow" filterUnits="userSpaceOnUse" x="-50%" y="-50%" width="200%" height="200%">
+					<feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur5" />
+					<feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur10" />
+					<feGaussianBlur in="SourceGraphic" stdDeviation="20" result="blur20" />
+					<feGaussianBlur in="SourceGraphic" stdDeviation="30" result="blur30" />
+					<feGaussianBlur in="SourceGraphic" stdDeviation="50" result="blur50" />
+					<feMerge result="blur-merged">
+						<feMergeNode in="blur10" />
+						<feMergeNode in="blur20" />
+						<feMergeNode in="blur30" />
+						<feMergeNode in="blur50" />
+					</feMerge>
+					<feColorMatrix type="matrix" values="1 0 0 0 0.83  0 1 0 0 0.68  0 0 1 0 0.21  0 0 0 1 0" result="gold-blur" />
+					<feMerge>
+						<feMergeNode in="gold-blur" />
+						<feMergeNode in="blur5" />
+						<feMergeNode in="SourceGraphic" />
+					</feMerge>
+				</filter>
+			</defs>
+			<g id="title">
+				<path id="first-circle" d="
   M1975.034180,1130.081421 
     C1974.011719,1131.552368 1972.289307,1132.504272 1972.131226,1133.668579 
     C1971.709106,1136.779053 1972.276489,1140.024048 1971.851196,1143.133667 
@@ -965,7 +820,7 @@ function Logo() {
     C621.602783,226.549026 618.343872,228.088562 614.728271,230.357635 
   z" />
 
-      <path id="second-circle" d="
+				<path id="second-circle" d="
   M521.038208,1627.999634 
     C511.103638,1619.838135 501.467529,1611.840698 491.962708,1603.690063 
     C478.233154,1591.916748 464.493134,1580.151123 450.981293,1568.130737 
@@ -1555,7 +1410,7 @@ function Logo() {
     C382.471008,730.454956 380.615753,733.893250 378.955994,738.069885 
   z" />
 
-      <path id="Later-h-1" d="
+				<path id="Later-h-1" d="
   M895.082214,1241.476685 
     C895.065186,1186.533447 895.037292,1131.590210 895.045105,1076.646973 
     C895.046082,1069.982666 895.135193,1069.971436 888.348694,1069.971802 
@@ -1595,7 +1450,7 @@ function Logo() {
     C895.815308,1429.093750 895.853333,1339.991333 895.797974,1250.889038 
     C895.796021,1247.751465 895.331238,1244.614136 895.082214,1241.476685 
   z" />
-      <path id="later-c-1" d="
+				<path id="later-c-1" d="
   M1091.618896,821.590210 
     C1085.552979,827.411926 1079.712280,832.961548 1073.488281,838.875305 
     C1070.197266,838.310059 1070.032837,835.329407 1070.029175,832.289001 
@@ -1680,7 +1535,7 @@ function Logo() {
     C1131.959717,787.629822 1124.703491,792.519043 1118.009155,798.072754 
     C1109.035400,805.517334 1100.543213,813.542236 1091.618896,821.590210 
   z" />
-      <path id="later-c-2" d="
+				<path id="later-c-2" d="
   M1254.888184,1396.002930 
     C1245.072754,1395.963135 1235.737549,1396.086548 1226.416260,1395.785278 
     C1223.722900,1395.698242 1221.110474,1394.065186 1218.387451,1393.719116 
@@ -1754,7 +1609,68 @@ function Logo() {
     C1270.976074,1398.857056 1266.650879,1400.021851 1262.653809,1396.683105 
     C1261.113037,1395.396362 1257.851318,1396.169678 1254.888184,1396.002930 
   z" />
-    </svg>
-  )
-}
+			</g>
+			<g fill="none" stroke="#D4AF37" strokeWidth="4" strokeLinecap="square" strokeDasharray="1500"
+				strokeDashoffset="1500" filter="url(#gold-glow)">
+				<animate attributeName="stroke-dashoffset" from="1500" to="0" dur="2s" fill="freeze" />
+				<use xlinkHref="#title" />
+			</g>
+			{/* <filter id="pink-glow" filterUnits="userSpaceOnUse" x="-50%" y="-50%" width="200%" height="200%">
+					<feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur5" />
+					<feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur10" />
+					<feGaussianBlur in="SourceGraphic" stdDeviation="20" result="blur20" />
+					<feGaussianBlur in="SourceGraphic" stdDeviation="30" result="blur30" />
+					<feGaussianBlur in="SourceGraphic" stdDeviation="50" result="blur50" />
+					<feMerge result="blur-merged">
+						<feMergeNode in="blur10" />
+						<feMergeNode in="blur20" />
+						<feMergeNode in="blur30" />
+						<feMergeNode in="blur50" />
+					</feMerge>
+					<feMerge>
+						<feMergeNode in="blur-merged" />
+						<feMergeNode in="blur5" />
+						<feMergeNode in="SourceGraphic" />
+					</feMerge>
+				</filter> */}
 
+			{/* <rect width="100%" height="100%" fill="none" />
+			<g fill="none" stroke="#a972cb" strokeWidth="16" strokeLinecap="square" strokeDasharray="1500"
+				strokeDashoffset="0" filter="url(#pink-glow)" transform="translate(100,100)">
+				{<animate id="lineAnimation" attributeName="stroke-dasharray" values="0 1500; 1500 0" dur="2s" fill="freeze" />}
+				<use xlinkHref="#title" />
+			</g> */}
+
+		</svg >
+	);
+};
+
+export default AnimatedLogoGold;
+
+
+
+{/* <filter id="purple-glow" filterUnits="userSpaceOnUse" x="-50%" y="-50%" width="200%" height="200%">
+					<feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur5" />
+					<feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur10" />
+					<feGaussianBlur in="SourceGraphic" stdDeviation="20" result="blur20" />
+					<feGaussianBlur in="SourceGraphic" stdDeviation="30" result="blur30" />
+					<feGaussianBlur in="SourceGraphic" stdDeviation="50" result="blur50" />
+					<feMerge result="blur-merged">
+						<feMergeNode in="blur10" />
+						<feMergeNode in="blur20" />
+						<feMergeNode in="blur30" />
+						<feMergeNode in="blur50" />
+					</feMerge>
+					<feMerge>
+						<feMergeNode in="blur-merged" />
+						<feMergeNode in="blur5" />
+						<feMergeNode in="SourceGraphic" />
+					</feMerge>
+				</filter>
+			</defs>
+			<rect width="100%" height="100%" fill="none" />
+			<g fill="none" stroke="hsl(180, 100%, 80%)" strokeWidth="16" strokeLinecap="square" strokeDasharray="1500"
+				strokeDashoffset="0" filter="url(#purple-glow)" transform="translate(100,100)">
+				{<animate id="lineAnimation" attributeName="stroke-dasharray" values="0 1500; 1500 0" dur="2s" fill="freeze" />}
+				<use xlinkHref="#title" />
+			</g> */}

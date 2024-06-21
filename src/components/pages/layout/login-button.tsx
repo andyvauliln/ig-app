@@ -7,11 +7,12 @@ export function Login() {
   };
 
   return (
-    <button onClick={handleSignIn} className="p-[3px] relative">
-      <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg" />
-      <div className="px-8 py-2 min-w-36 bg-black rounded-[6px] relative group transition duration-200 text-white hover:bg-transparent">
+    <button onClick={handleSignIn} className="relative p-1 bg-black text-white rounded-md group overflow-hidden">
+      <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: 'url(/old_gold.jpeg)' }}></div>
+      <div className="relative z-10 px-8 font-extrabold py-2 bg-black rounded-md group-hover:text-yellow-500 text-shadow-yellow-500 transition duration-200">
         Log in
       </div>
+      <div className="absolute inset-0 border-4 border-transparent rounded-md pointer-events-none" style={{ clipPath: 'inset(0 0 0 0 round 6px)', backgroundImage: 'url(/old_gold.jpeg)' }}></div>
     </button>
   );
 }

@@ -1,11 +1,11 @@
 "use client"
-
+import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
 import { contactConfig } from "@/config/site"
+import { SparklesPreview } from "./sparkles-contact"
 
-import { Button } from "@/components/ui/button"
 import {
     Form,
     FormControl,
@@ -15,7 +15,7 @@ import {
     FormLabel,
     FormMessage,
 } from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
+import { Input, GradientInput, GradientTextArea } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 
 const formSchema = z.object({
@@ -27,7 +27,8 @@ const formSchema = z.object({
     }),
 })
 
-export default function ContactForm() {
+function ContactForm() {
+    const [submitted, setSumbited] = useState(false)
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -54,7 +55,7 @@ export default function ContactForm() {
                         <FormItem>
                             <FormLabel>Subject</FormLabel>
                             <FormControl>
-                                <Input placeholder="Enter the subject" {...field} />
+                                <GradientInput placeholder="Enter the subject" {...field} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
@@ -67,7 +68,7 @@ export default function ContactForm() {
                         <FormItem>
                             <FormLabel>Message</FormLabel>
                             <FormControl>
-                                <Textarea placeholder="Enter your message" {...field} />
+                                <GradientTextArea placeholder="Enter your message" {...field} />
                             </FormControl>
                             <FormDescription>
                                 Your message will be sent through email
@@ -77,10 +78,31 @@ export default function ContactForm() {
                     )}
                 />
                 <div />
-                <Button className="w-full" type="submit">
-                    Submit
-                </Button>
+                <button onClick={() => setSumbited(true)} className="p-[3px] relative">
+                    <div className="absolute  inset-0 bg-gradient-to-r from-purple-600 to-sky-400 rounded-lg" />
+                    <div className="px-8 py-2 min-w-36 bg-black rounded-[6px] relative group transition duration-200 text-white hover:bg-transparent">
+                        Submit
+                    </div>
+                </button>
             </form>
         </Form>
     )
 }
+
+
+export default function ContactSection() {
+    return (
+        <div className="w-full overflow-hidden">
+            <div className="grid lg:grid-cols-8 lg:gap-x-8 xl:gap-x-12 lg:items-center">
+                <div className='lg:col-span-4 mt-10 lg:mt-0 w-full rounded-xl h-full'>
+                    <ContactForm />
+                </div>
+
+                <div className="lg:col-span-4 mt-3 lg:mt-0 w-full relative rounded-xl h-full">
+                    <SparklesPreview />
+                </div>
+            </div>
+        </div>
+    )
+}
+

@@ -7,6 +7,8 @@ import { ICPProvider } from "@/components/pages/layout/providers/icp-provider";
 import './globals.css';
 import "@/lib/_supressLogs";
 import { TracingBeam } from "@/components/ui/tracing-beam";
+import { TracingBeamHorizontal } from "@/components/ui/tracing-beam-horizontal";
+import Head from "next/head"
 
 const jetBrainsMono = JetBrains_Mono({ subsets: ['latin'] });
 
@@ -18,6 +20,12 @@ export default function RootLayout({
 
   return (
     <html lang="en" className='dark'>
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+      </head>
       <body className={`${jetBrainsMono.className} min-h-screen bg-white dark:bg-black w-[100vw] flex flex-col `}>
         <TracingBeam className="px-6">
           <ICPProvider>
@@ -30,6 +38,7 @@ export default function RootLayout({
             </AuthProvider>
           </ICPProvider>
         </TracingBeam>
+
       </body>
     </html>
   );

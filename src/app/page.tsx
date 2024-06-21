@@ -6,6 +6,7 @@ import AirdropSection from "@/components/pages/landing-page/section-airdrop"
 import ContactForm from "@/components/pages/landing-page/section-contacts";
 import InvestmentSection from "@/components/pages/landing-page/section-investment";
 import PartnersSection from "@/components/pages/landing-page/section-partners";
+// import IntroSection from "@/components/pages/landing-page/intro-section";
 import "@/lib/_supressLogs";
 
 export default function Home() {

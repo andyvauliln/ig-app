@@ -32,14 +32,14 @@ export const TracingBeam = ({
     }, []);
 
     const y1 = useSpring(
-        useTransform(scrollYProgress, [0, 0.8], [50, svgHeight]),
+        useTransform(scrollYProgress, [0, 0.7], [50, svgHeight]),
         {
             stiffness: 500,
             damping: 90,
         }
     );
     const y2 = useSpring(
-        useTransform(scrollYProgress, [0, 1], [50, svgHeight - 200]),
+        useTransform(scrollYProgress, [0, 1], [50, svgHeight - 10]),
         {
             stiffness: 500,
             damping: 90,
@@ -72,9 +72,9 @@ export const TracingBeam = ({
                         }}
                         animate={{
                             backgroundColor:
-                                scrollYProgress.get() > 0 ? "white" : "var(--emerald-500)",
+                                scrollYProgress.get() > 0 ? "white" : "var(--gold-500)",
                             borderColor:
-                                scrollYProgress.get() > 0 ? "white" : "var(--emerald-600)",
+                                scrollYProgress.get() > 0 ? "white" : "var(--gold-600)",
                         }}
                         className="h-2 w-2  rounded-full border border-neutral-300 bg-white"
                     />
@@ -114,10 +114,10 @@ export const TracingBeam = ({
                             y1={y1} // set y1 for gradient
                             y2={y2} // set y2 for gradient
                         >
-                            <stop stopColor="#18CCFC" stopOpacity="0"></stop>
-                            <stop stopColor="#18CCFC"></stop>
-                            <stop offset="0.325" stopColor="#6344F5"></stop>
-                            <stop offset="1" stopColor="#AE48FF" stopOpacity="0"></stop>
+                            <stop stopColor="#FFD700" stopOpacity="0"></stop>
+                            <stop stopColor="#FFD700"></stop>
+                            <stop offset="0.325" stopColor="#FFD700"></stop>
+                            <stop offset="1" stopColor="#FFD700" stopOpacity="0"></stop>
                         </motion.linearGradient>
                     </defs>
                 </svg>

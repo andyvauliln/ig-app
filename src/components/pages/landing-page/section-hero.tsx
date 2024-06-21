@@ -3,16 +3,18 @@ import React from 'react';
 import { LampContainer } from './lamp';
 import { Anton } from "next/font/google"
 import { Amatic_SC } from 'next/font/google';
+import { Bebas_Neue } from 'next/font/google';
 import AnimatedText from '../common/animated-text';
 import { motion } from "framer-motion";
 
 const anton = Anton({ subsets: ["latin"], weight: "400", style: "normal" });
 const amaticSC = Amatic_SC({ subsets: ["latin"], weight: "400", style: "normal" });
+const bebasNeue = Bebas_Neue({ subsets: ["latin"], weight: "400", style: "normal" });
 
 export default function HeroSection() {
     return (
         <>
-            <div className="container lg:py-10 overflow-hidden">
+            <div className="lg:py-10 overflow-hidden">
                 <div className="grid lg:grid-cols-8 lg:gap-x-8 xl:gap-x-12 lg:items-center">
                     <LampContainer className='w-full lg:col-span-4 flex flex-col'>
                         <CompanyNameText />
@@ -41,17 +43,18 @@ export default function HeroSection() {
 function GradientButton() {
     return (
         <button className="p-[3px] relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg" />
-            <div className="px-8 py-2 bg-black rounded-[6px] relative group transition duration-200 text-white hover:bg-transparent">
-                Sign up
+            <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: 'url(/old_gold.jpeg)' }}></div>
+            <div className="relative z-10 text-white px-8 font-extrabold py-2 bg-black rounded-md group-hover:text-yellow-500 text-shadow-yellow-500 transition duration-200">
+                Sign Up
             </div>
+            <div className="absolute inset-0 border-4 border-transparent rounded-md pointer-events-none" style={{ clipPath: 'inset(0 0 0 0 round 6px)', backgroundImage: 'url(/old_gold.jpeg)' }}></div>
         </button>
     )
 }
 
 function AuthorText() {
     return (
-        <AnimatedText initialDelay={6} key="author" words="George Santayana" className={`mt-3 text-5xl bg-gradient-to-br from-slate-300 to-slate-500  bg-clip-text text-transparent`} />
+        <AnimatedText initialDelay={6} key="author" words="George Santayana" className={`mt-3 text-white opacity-80 text-xl font-sans`} />
     )
 }
 
@@ -59,7 +62,7 @@ function QuoteText() {
     return (
         <AnimatedText initialDelay={3} key="Quote"
             words='" Those who cannot remember the past are condemned to repeat it. "'
-            className={`${amaticSC.className} text-white mt-16 text-2xl lg:text-4xl text-muted-foreground text-center`} />
+            className={`${bebasNeue.className} text-yellow-500 mt-8 text-xl lg:text-4xl text-center`} />
     )
 }
 
@@ -73,7 +76,7 @@ function CompanyNameText() {
                 duration: 0.8,
                 ease: "easeInOut",
             }}
-            className={`${anton.className} justify-center items-center flex flex-col mt-4 text-shadow-purple-500 text-white text-center text-6xl font-medium tracking-tight text-transparent md:text-7xl`}
+            className={`${bebasNeue.className} justify-center items-center flex flex-col mt-4 text-white text-center text-6xl font-medium tracking-tight text-transparent md:text-7xl`}
         >
 
             <span>Histoverse</span>
