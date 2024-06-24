@@ -2,16 +2,11 @@
 
 import { useState, useEffect, useContext } from "react"
 import Link from "next/link"
-import { ModeToggle } from "@/components/archive/theme-button"
-import { siteConfig } from "@/config/site"
 import { navLinks } from "@/lib/links"
-import { settings } from "@/config/settings"
 import { Dispatch, SetStateAction } from "react"
 import { AuthContext } from '@/components/pages/layout/providers/auth-provider';
 import { Login } from '@/components/pages/layout/login-button';
 import { Logout } from '@/components/pages/layout/logout-button';
-import Image from "next/image"
-import AnimatedLogo from "@/components/pages/common/animated-logo"
 import { Anton } from "next/font/google"
 import { usePathname } from 'next/navigation'
 
@@ -50,7 +45,6 @@ export default function Navbar() {
           <div className="flex items-center w-full">
             <Link href="/" className="flex items-center space-x-2 lg:hover:scale-[1.10]">
               <Logo />
-              {/* <CompanyName /> */}
             </Link>
           </div>
           <div className="flex gap-1 md:hidden">
@@ -125,7 +119,7 @@ function NavbarLinks({ navbar, handleClick }: NavbarLinksProps) {
   const pathname = usePathname()
   return (
     <div className={`flex flex-col items-center justify-center m-auto rounded-md p-4`}>
-      <ul className="buttons scale-[1.2] md:scale-[1.6] lg:scale-[2]">
+      <ul className="purple-buttons scale-[1.2] md:scale-[1.6] lg:scale-[2]">
         {navLinks.map((link) => (
           link.path !== '/' || pathname !== '/' ? (
             <NavButton key={link.route} path={link.path} isActive={pathname === link.path}>
@@ -148,26 +142,6 @@ function CompanyName() {
   )
 }
 
-// function NavButton2({ children, path }: { children: React.ReactNode, path: string }) {
-//   return (
-//     <Link href={path} className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
-//       <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
-//       <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl">
-//         {children}
-//       </span>
-//     </Link>
-//   );
-// }
-// function NavButton({ children, path }: { children: React.ReactNode, path: string }) {
-//   return (
-//     <Link href={path} className="inline-flex h-12 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
-//       <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
-//       <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl">
-//         {children}
-//       </span>
-//     </Link>
-//   );
-// }
 
 function NavButton({ children, path, isActive }: { children: React.ReactNode, path: string, isActive: boolean }) {
   return (
