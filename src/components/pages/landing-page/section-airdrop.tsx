@@ -1,19 +1,10 @@
 "use client"
 import React from 'react';
-import { BackgroundGradient } from '../common/glowing-card';
-import { LampContainer } from './lamp';
-import { Button } from '@/components/ui/button';
-import { Label } from '@/components/ui/label';
-import { Input } from '@/components/ui/input';
-import { Anton } from "next/font/google"
 import { Amatic_SC } from 'next/font/google';
-import AnimatedText from '../common/animated-text';
 import Image from 'next/image'
 import { Bebas_Neue } from "next/font/google"
 
 const bebasNeue = Bebas_Neue({ subsets: ["latin"], weight: "400", style: "normal" });
-
-const amaticSC = Amatic_SC({ subsets: ["latin"], weight: "400", style: "normal" });
 
 export default function AirdropSection() {
     return (
@@ -35,14 +26,8 @@ export default function AirdropSection() {
 
 function AirdropText() {
     return (
-        //     <AnimatedText key="slogan"
-        //         words='Earn Histocred Token
-        //         by Contributing to Our
-        //         Web3 Community.'
-        //         className={`${amaticSC.className} text-white mt-16 text-2xl lg:text-4xl text-muted-foreground text-center`} />
-        // )
         <>
-            <h3 className={`${bebasNeue.className} text-yellow-500 mt-8 text-xl lg:text-4xl text-center`}> Earn Histocred Token by Contributing to Our Web3 Community.</h3 >>
+            <h3 className={`${bebasNeue.className} text-yellow-500 mt-8 text-xl lg:text-4xl text-center`}> Earn Histocred Token by Contributing to Our Web3 Community.</h3 >
             <ul className="list-disc pl-5 mt-4 text-white">
                 <li className="flex items-start">
                     <Image src="/logo.svg" alt="icon" width={20} height={20} className="mr-2 mt-1" />
@@ -55,7 +40,7 @@ function AirdropText() {
                     <Image src="/logo.svg" alt="icon" width={20} height={20} className="mr-2  mt-1" />
                     <div>
                         <strong style={{ "color": "#a972cb" }}>Contribute Content:</strong>
-                        <p>If you're passionate about history, contribute articles, research papers, or multimedia content to our platform. Each piece of content you contribute will be rewarded with HCT based on its quality and impact.</p>
+                        <p>If you&apos;re passionate about history, contribute articles, research papers, or multimedia content to our platform. Each piece of content you contribute will be rewarded with HCT based on its quality and impact.</p>
                     </div>
                 </li>
                 <li className="flex mt-4 items-start">
