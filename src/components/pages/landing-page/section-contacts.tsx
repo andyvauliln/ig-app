@@ -5,6 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
 import { contactConfig } from "@/config/site"
 import { SparklesPreview } from "./sparkles-contact"
+import { YellowButton } from "@/components/ui/button"
 
 import {
     Form,
@@ -15,8 +16,7 @@ import {
     FormLabel,
     FormMessage,
 } from "@/components/ui/form"
-import { Input, GradientInput, GradientTextArea } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
+import { GradientInput, GradientTextArea } from "@/components/ui/input"
 
 const formSchema = z.object({
     subject: z.string().min(1, {
@@ -78,12 +78,10 @@ function ContactForm() {
                     )}
                 />
                 <div />
-                <button onClick={() => setSumbited(true)} className="p-[3px] relative">
-                    <div className="absolute  inset-0 bg-gradient-to-r from-purple-600 to-sky-400 rounded-lg" />
-                    <div className="px-8 py-2 min-w-36 bg-black rounded-[6px] relative group transition duration-200 text-white hover:bg-transparent">
-                        Submit
-                    </div>
-                </button>
+                <YellowButton onClick={() => setSumbited(true)}>
+                    Submit
+                </YellowButton>
+
             </form>
         </Form>
     )
