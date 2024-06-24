@@ -35,7 +35,7 @@ const buttonVariants = cva(
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
+  VariantProps<typeof buttonVariants> {
   asChild?: boolean
 }
 
@@ -52,5 +52,17 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   }
 )
 Button.displayName = "Button"
+
+export function YellowButton({ onClick, children }: { onClick: () => void, children: React.ReactNode }) {
+  return (
+    <Button onClick={onClick} className="p-[2px] relative transform transition-transform duration-200 hover:scale-105">
+      <div className="absolute inset-0 bg-gradient-to-r from-yellow-500 via-yellow-700 to-yellow-400 rounded-lg" />
+      <div className="px-8 py-2 bg-black rounded-[6px] relative group font-extrabold transition duration-200 text-white hover:text-shadow-yellow-500">
+        {children}
+      </div>
+    </Button>
+  );
+}
+
 
 export { Button, buttonVariants }
