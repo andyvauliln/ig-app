@@ -6,9 +6,8 @@ import { Amatic_SC } from 'next/font/google';
 import { Bebas_Neue } from 'next/font/google';
 import AnimatedText from '../common/animated-text';
 import { motion } from "framer-motion";
+import { YellowButton } from "@/components/ui/button";
 
-const anton = Anton({ subsets: ["latin"], weight: "400", style: "normal" });
-const amaticSC = Amatic_SC({ subsets: ["latin"], weight: "400", style: "normal" });
 const bebasNeue = Bebas_Neue({ subsets: ["latin"], weight: "400", style: "normal" });
 
 export default function HeroSection() {
@@ -21,7 +20,9 @@ export default function HeroSection() {
                         <QuoteText />
                         <AuthorText />
                         <div className="items-center mt-10">
-                            <GradientButton />
+                            <YellowButton onClick={() => { }}>
+                                Sign Up
+                            </YellowButton>
                         </div>
                     </LampContainer>
                     <div className="lg:col-span-4 mt-10 lg:mt-0 w-full rounded-xl h-full min-h-[500px]">
@@ -39,18 +40,6 @@ export default function HeroSection() {
     );
 }
 
-// from-teal-400 to-cyan-500
-function GradientButton() {
-    return (
-        <button className="p-[3px] relative">
-            <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: 'url(/old_gold.jpeg)' }}></div>
-            <div className="relative z-10 text-white px-8 font-extrabold py-2 bg-black rounded-md group-hover:text-yellow-500 text-shadow-yellow-500 transition duration-200">
-                Sign Up
-            </div>
-            <div className="absolute inset-0 border-4 border-transparent rounded-md pointer-events-none" style={{ clipPath: 'inset(0 0 0 0 round 6px)', backgroundImage: 'url(/old_gold.jpeg)' }}></div>
-        </button>
-    )
-}
 
 function AuthorText() {
     return (
