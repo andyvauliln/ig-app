@@ -1,5 +1,4 @@
 "use client"
-import { JetBrains_Mono } from 'next/font/google';
 import Navbar from "@/components/pages/layout/header"
 import Footer from "@/components/pages/layout/footer"
 import { AuthProvider } from "@/components/pages/layout/providers/auth-provider";
@@ -7,10 +6,9 @@ import { ICPProvider } from "@/components/pages/layout/providers/icp-provider";
 import './globals.css';
 import "@/lib/_supressLogs";
 import { TracingBeam } from "@/components/ui/tracing-beam";
-import { TracingBeamHorizontal } from "@/components/ui/tracing-beam-horizontal";
-import Head from "next/head"
+// import { DM_Serif_Text } from "next/font/google"
 
-const jetBrainsMono = JetBrains_Mono({ subsets: ['latin'] });
+// const dmSerifText = DM_Serif_Text({ subsets: ["latin"], weight: "400", style: "normal" });
 
 export default function RootLayout({
   children
@@ -26,7 +24,7 @@ export default function RootLayout({
           href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
         />
       </head>
-      <body className={`${jetBrainsMono.className} min-h-screen bg-white dark:bg-black w-[100vw] flex flex-col `}>
+      <body className={`min-h-screen bg-white dark:bg-black w-[100vw] flex flex-col `}>
         <TracingBeam className="px-6">
           <ICPProvider>
             <AuthProvider>
@@ -38,7 +36,6 @@ export default function RootLayout({
             </AuthProvider>
           </ICPProvider>
         </TracingBeam>
-
       </body>
     </html>
   );
