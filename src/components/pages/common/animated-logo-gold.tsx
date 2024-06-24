@@ -7,7 +7,7 @@ const AnimatedLogoGold = ({ className }: { className: string }) => {
 	useEffect(() => {
 		const timer = setTimeout(() => {
 			setAnimationStart(true);
-		}, 1500); // 1 second delay
+		}, 1500);
 
 		return () => clearTimeout(timer);
 	}, []);
@@ -1615,62 +1615,8 @@ const AnimatedLogoGold = ({ className }: { className: string }) => {
 				<animate attributeName="stroke-dashoffset" from="1500" to="0" dur="2s" fill="freeze" />
 				<use xlinkHref="#title" />
 			</g>
-			{/* <filter id="pink-glow" filterUnits="userSpaceOnUse" x="-50%" y="-50%" width="200%" height="200%">
-					<feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur5" />
-					<feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur10" />
-					<feGaussianBlur in="SourceGraphic" stdDeviation="20" result="blur20" />
-					<feGaussianBlur in="SourceGraphic" stdDeviation="30" result="blur30" />
-					<feGaussianBlur in="SourceGraphic" stdDeviation="50" result="blur50" />
-					<feMerge result="blur-merged">
-						<feMergeNode in="blur10" />
-						<feMergeNode in="blur20" />
-						<feMergeNode in="blur30" />
-						<feMergeNode in="blur50" />
-					</feMerge>
-					<feMerge>
-						<feMergeNode in="blur-merged" />
-						<feMergeNode in="blur5" />
-						<feMergeNode in="SourceGraphic" />
-					</feMerge>
-				</filter> */}
-
-			{/* <rect width="100%" height="100%" fill="none" />
-			<g fill="none" stroke="#a972cb" strokeWidth="16" strokeLinecap="square" strokeDasharray="1500"
-				strokeDashoffset="0" filter="url(#pink-glow)" transform="translate(100,100)">
-				{<animate id="lineAnimation" attributeName="stroke-dasharray" values="0 1500; 1500 0" dur="2s" fill="freeze" />}
-				<use xlinkHref="#title" />
-			</g> */}
-
 		</svg >
 	);
 };
 
 export default AnimatedLogoGold;
-
-
-
-{/* <filter id="purple-glow" filterUnits="userSpaceOnUse" x="-50%" y="-50%" width="200%" height="200%">
-					<feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur5" />
-					<feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur10" />
-					<feGaussianBlur in="SourceGraphic" stdDeviation="20" result="blur20" />
-					<feGaussianBlur in="SourceGraphic" stdDeviation="30" result="blur30" />
-					<feGaussianBlur in="SourceGraphic" stdDeviation="50" result="blur50" />
-					<feMerge result="blur-merged">
-						<feMergeNode in="blur10" />
-						<feMergeNode in="blur20" />
-						<feMergeNode in="blur30" />
-						<feMergeNode in="blur50" />
-					</feMerge>
-					<feMerge>
-						<feMergeNode in="blur-merged" />
-						<feMergeNode in="blur5" />
-						<feMergeNode in="SourceGraphic" />
-					</feMerge>
-				</filter>
-			</defs>
-			<rect width="100%" height="100%" fill="none" />
-			<g fill="none" stroke="hsl(180, 100%, 80%)" strokeWidth="16" strokeLinecap="square" strokeDasharray="1500"
-				strokeDashoffset="0" filter="url(#purple-glow)" transform="translate(100,100)">
-				{<animate id="lineAnimation" attributeName="stroke-dasharray" values="0 1500; 1500 0" dur="2s" fill="freeze" />}
-				<use xlinkHref="#title" />
-			</g> */}
