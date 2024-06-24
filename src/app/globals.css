@@ -70,7 +70,7 @@
 
 
 /* Tabs Buttons */
-.buttons {
+.purple-buttons {
     white-space: nowrap;
     min-height: 33px;
     position: relative;
@@ -78,7 +78,7 @@
 
 }
 
-.buttons a {
+.purple-buttons a {
     font-size: 10px;
     animation: bounceInDown 900ms 200ms ease-in-out both;
     padding: 0 10px;
@@ -94,7 +94,7 @@
     justify-content: center;
 }
 
-.buttons a:not(.active) {
+.purple-buttons a:not(.active) {
     box-shadow: inset 0 1px 1px rgba(111, 55, 125, 0.8),
         inset 0 -1px 0px rgba(63, 59, 113, 0.2), 0 9px 16px 0 rgba(0, 0, 0, 0.3),
         0 4px 3px 0 rgba(0, 0, 0, 0.3), 0 0 0 1px #150a1e;
@@ -102,9 +102,34 @@
     text-shadow: 0 0 21px rgba(223, 206, 228, 0.5), 0 -1px 0 #311d47;
 }
 
-.buttons a.active,
-.buttons a:active,
-.buttons a:hover {
+.purple-bg {
+    box-shadow: inset 0 1px 1px rgba(111, 55, 125, 0.8),
+        inset 0 -1px 0px rgba(63, 59, 113, 0.2), 0 9px 16px 0 rgba(0, 0, 0, 0.3),
+        0 4px 3px 0 rgba(0, 0, 0, 0.3), 0 0 0 1px #150a1e;
+    background-image: linear-gradient(#3b2751, #271739);
+    text-shadow: 0 0 21px rgba(223, 206, 228, 0.5), 0 -1px 0 #311d47;
+}
+
+.purple-card-bg:hover {
+    /* box-shadow: 0 0px 5px 3px rgba(111, 55, 125, 0.8) */
+    box-shadow: 0 0px 10px 3px #D4AF37
+        /* inset 0 -1px 0px rgba(63, 59, 113, 0.2), 0 4px 4px 0 rgba(0, 0, 0, 0.3),
+        0 -4px 4px 0 rgba(0, 0, 0, 0.3), 0 0 0 1px #150a1e; */
+        /* background-image: linear-gradient(#3b2751, #271739);
+    text-shadow: 0 0 21px rgba(223, 206, 228, 0.5), 0 -1px 0 #311d47; */
+}
+
+.yellow-card-bg {
+    box-shadow: 0 0px 10px 3px #D4AF37
+        /* inset 0 -1px 0px rgba(63, 59, 113, 0.2), 0 4px 4px 0 rgba(0, 0, 0, 0.3),
+        0 -4px 4px 0 rgba(0, 0, 0, 0.3), 0 0 0 1px #150a1e; */
+        /* background-image: linear-gradient(#3b2751, #271739);
+    text-shadow: 0 0 21px rgba(223, 206, 228, 0.5), 0 -1px 0 #311d47; */
+}
+
+.purple-buttons a.active,
+.purple-buttons a:active,
+.purple-buttons a:hover {
 
     /* background-image: linear-gradient(#1f132e, #311d47); */
     box-shadow: inset 0 1px 1px rgba(111, 55, 125, 0.8),
@@ -116,11 +141,11 @@
     color: #D4AF37;
 }
 
-.buttons a:last-of-type {
+.purple-buttons a:last-of-type {
     border-radius: 0 3px 0px 0;
 }
 
-.buttons a:first-of-type {
+.purple-buttons a:first-of-type {
     border-radius: 3px 0 0 0px;
     left: 0;
 }
