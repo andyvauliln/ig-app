@@ -15,7 +15,6 @@ export default function Footer() {
           </Link>
           <SocialMedia />
         </div>
-        {/* <hr className="my-6 bg-teal-400 text-[#18CCFC] sm:mx-auto lg:my-8" /> */}
         <TracingBeamHorizontal />
         <span className="block text-sm text-muted-foreground sm:text-center">
           © {new Date().getFullYear()}{" "}
