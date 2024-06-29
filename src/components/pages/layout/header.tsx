@@ -117,18 +117,18 @@ export function NavbarToggle({ navbar, setNavbar }: NavbarToggleProps) {
 
 function NavbarLinks({ navbar, handleClick }: NavbarLinksProps) {
   const pathname = usePathname()
+  console.log("path", pathname)
   return (
     <div className={`flex flex-col items-center justify-center m-auto rounded-md p-4`}>
       <ul className="purple-buttons scale-[1.2] md:scale-[1.6] lg:scale-[2]">
         {navLinks.map((link) => (
           link.path !== '/' || pathname !== '/' ? (
-            <NavButton key={link.route} path={link.path} isActive={pathname === link.path}>
+            <NavButton key={link.route} path={link.path} isActive={pathname === link.path || pathname.startsWith(`${link.path}/`)}>
               {link.route}
             </NavButton>
           ) : null
         ))}
       </ul>
-
     </div>
   )
 }
