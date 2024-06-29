@@ -2,8 +2,7 @@
 import React from "react"
 import { Bebas_Neue } from "next/font/google"
 import { YellowButton } from "@/components/ui/button";
-import { LayoutGrid } from "@/components/ui/bento-grid";
-import Image from "next/image";
+import { RequestContentGrid } from "@/components/ui/request-content-grid";
 import { Badge } from "@/components/ui/badge"
 import { purple } from "tailwindcss/colors";
 const bebasNeue = Bebas_Neue({ subsets: ["latin"], weight: "400", style: "normal" });
@@ -24,7 +23,7 @@ const RequestLessonPage = () => {
                 </div>
 
             </div>
-            <LayoutGrid cards={items} />
+            <RequestContentGrid cards={items} />
         </div>
 
     );
@@ -33,11 +32,6 @@ export default RequestLessonPage
 
 
 
-// const Skeleton = ({ url, alt }: { url: string, alt: string }) => (
-//     <div className="relative flex flex-1 w-full h-full min-h-[16rem] rounded-xl bg-gradient-to-br from-neutral-200 dark:from-neutral-900 dark:to-neutral-800 to-neutral-100">
-//         <Image src={url} alt={alt} layout="fill" objectFit="cover" className="rounded-xl" />
-//     </div>
-// );
 const Footer = ({ reward, numberOfVotes }: { reward: string, numberOfVotes: number }) => {
     return <div className="flex justify-between mt-2 items-center">
         <div className="flex items-center space-x-2">
@@ -48,7 +42,25 @@ const Footer = ({ reward, numberOfVotes }: { reward: string, numberOfVotes: numb
             </Badge>
 
         </div>
-        <YellowButton onClick={() => { }}>Upvote</YellowButton>
+        <div className="">
+            <YellowButton onClick={() => { }}>Upvote</YellowButton>
+        </div>
+    </div>
+};
+const FooterOpen = ({ reward, numberOfVotes }: { reward: string, numberOfVotes: number }) => {
+    return <div className="flex justify-between mt-6 items-center">
+        <div className="flex items-center space-x-2">
+            <Badge variant="purple">Reward: {reward} ICP</Badge>
+            <Badge className="flex items-center bg-teal-500">
+                <i className="text-white fa fa-thumbs-up mr-1"></i>
+                <span className="text-white">{numberOfVotes}</span>
+            </Badge>
+
+        </div>
+        <div className="space-x-2">
+            <YellowButton onClick={() => { }}>Upvote</YellowButton>
+            <YellowButton onClick={() => { }}>Collaborate</YellowButton>
+        </div>
     </div>
 };
 const OpenContent = ({ card = null }: { card?: any }) => {
@@ -76,6 +88,7 @@ const items = [
         header: null,
         img_url: "/images/event_1.png",
         footer: <Footer reward="100/400" numberOfVotes={100} />,
+        footer_open: <FooterOpen reward="100/400" numberOfVotes={100} />,
         content: <OpenContent />,
         date: "2021-01-01"
     },
@@ -86,6 +99,7 @@ const items = [
         header: null,
         img_url: "/images/event_2.png",
         footer: <Footer reward="300/400" numberOfVotes={100} />,
+        footer_open: <FooterOpen reward="300/400" numberOfVotes={100} />,
         content: <OpenContent />,
         date: "2023-01-01"
     },
@@ -96,6 +110,7 @@ const items = [
         header: null,
         img_url: "/images/event_3.png",
         footer: <Footer reward="400/400" numberOfVotes={100} />,
+        footer_open: <FooterOpen reward="400/400" numberOfVotes={100} />,
         content: <OpenContent />,
         date: "2023-02-07"
     },
@@ -105,7 +120,8 @@ const items = [
         description: "Understand the causes and consequences of the two global conflicts.",
         header: null,
         img_url: "/images/event_4.png",
-        footer: <Footer reward="100" numberOfVotes={100} />,
+        footer: <Footer reward="100" numberOfVotes={1000} />,
+        footer_open: <FooterOpen reward="100" numberOfVotes={1000} />,
         content: <OpenContent />,
         date: "2024-06-07"
     },
@@ -116,6 +132,7 @@ const items = [
         header: null,
         img_url: "/images/event_5.png",
         footer: <Footer reward="100" numberOfVotes={100} />,
+        footer_open: <FooterOpen reward="100" numberOfVotes={100} />,
         content: <OpenContent />,
         date: "2024-03-09"
     },
@@ -127,6 +144,7 @@ const items = [
         img_url: "/images/event_6.png",
         content: <OpenContent />,
         footer: <Footer reward="0/500" numberOfVotes={100} />,
+        footer_open: <FooterOpen reward="0/500" numberOfVotes={100} />,
         date: "2024-06-09"
     },
     {
@@ -135,7 +153,8 @@ const items = [
         title: "The Renaissance",
         content: <OpenContent />,
         description: "Witness the rebirth of art, science, and culture in Europe.",
-        footer: <Footer reward="100" numberOfVotes={100} />,
+        footer: <Footer reward="100" numberOfVotes={1000} />,
+        footer_open: <FooterOpen reward="100" numberOfVotes={1000} />,
         date: "2024-09-12"
     },
     {
@@ -145,6 +164,7 @@ const items = [
         content: <OpenContent />,
         description: "Witness the rebirth of art, science, and culture in Europe.",
         footer: <Footer reward="100" numberOfVotes={100} />,
+        footer_open: <FooterOpen reward="100" numberOfVotes={100} />,
         date: "2024-09-12"
     },
     {
@@ -154,6 +174,7 @@ const items = [
         content: <OpenContent />,
         description: "Witness the rebirth of art, science, and culture in Europe.",
         footer: <Footer reward="100" numberOfVotes={100} />,
+        footer_open: <FooterOpen reward="100/400" numberOfVotes={100} />,
         date: "2024-09-12"
     },
     {
@@ -163,6 +184,7 @@ const items = [
         content: <OpenContent />,
         description: "Witness the rebirth of art, science, and culture in Europe.",
         footer: <Footer reward="100" numberOfVotes={100} />,
+        footer_open: <FooterOpen reward="100/400" numberOfVotes={100} />,
         date: "2024-09-12"
     },
 ];
