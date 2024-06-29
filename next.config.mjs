@@ -20,7 +20,7 @@ const coreConfig = {
     },
     bundlePagesRouterDependencies: true,
     images: {
-        remotePatterns: [{ hostname: "utfs.io" }],
+        remotePatterns: [{ hostname: "utfs.io" }, { hostname: "randomuser.me", protocol: "https", pathname: '/api/portraits/men/**' }],
     },
     // profiler: true,
     typescript: {
