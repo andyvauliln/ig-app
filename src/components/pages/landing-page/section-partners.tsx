@@ -29,6 +29,8 @@ export default function PartnersSection() {
                             src="/partners/positive_gaming_logo_part_1.png"
                             role="presentation"
                             loading="lazy"
+                            className='h-[70px]'
+
                             alt="partners logo positive gameing bali"
                             height={50}
                             width={100}
@@ -47,8 +49,9 @@ export default function PartnersSection() {
                         role="presentation"
                         loading="lazy"
                         alt="partners logo icp "
-                        height={30}
-                        width={210}
+                        width={100}
+                        height={50}
+                        className='h-[50px] m-auto'
                     />
                     <div>
                         <Image
@@ -56,7 +59,8 @@ export default function PartnersSection() {
                             role="presentation"
                             loading="lazy"
                             alt="partners logo block and rock"
-                            height={50}
+                            height={40}
+                            className='h-[80px] m-auto'
                             width={100}
                         />
                         <div className='text-white text-lg font-bold mt-4 text-center'>Rock&apos;n&apos;Block</div>
