@@ -119,6 +119,13 @@
     text-shadow: 0 0 21px rgba(223, 206, 228, 0.5), 0 -1px 0 #311d47; */
 }
 
+.yellow-card-hover:hover,
+.yellow-card-active {
+    box-shadow: 0 0px 6px 1px #D4AF37;
+    transform: scale(1.05);
+    padding: 1rem;
+}
+
 .yellow-card-bg {
     box-shadow: 0 0px 10px 3px #D4AF37
         /* inset 0 -1px 0px rgba(63, 59, 113, 0.2), 0 4px 4px 0 rgba(0, 0, 0, 0.3),
