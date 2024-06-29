@@ -12,7 +12,7 @@ export const InfiniteMovingCards = ({
     className,
 }: {
     items: {
-        text: string;
+        title: string;
         url: string;
     }[];
     direction?: "left" | "right";
@@ -97,7 +97,10 @@ export const InfiniteMovingCards = ({
                         }}
                         key={idx}
                     >
-                        <Image src={item.url} alt={item.text} fill style={{ objectFit: 'cover' }} />
+                        <div className="absolute bottom-0 left-0 right-0 z-10 p-2 text-xl rounded-b-2xl text-center text-white bg-black bg-opacity-50">
+                            {item.title}
+                        </div>
+                        <Image src={item.url} alt={item.title} fill style={{ objectFit: 'cover' }} />
                     </li>
                 ))}
             </ul>
