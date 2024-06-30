@@ -6,7 +6,6 @@ import { DM_Serif_Text } from "next/font/google"
 import { Exo_2 } from "next/font/google"
 
 const bebasNeue = Bebas_Neue({ subsets: ["latin"], weight: "400", style: "normal" });
-const dmSerifText = DM_Serif_Text({ subsets: ["latin"], weight: "400", style: "normal" });
 const exo2 = Exo_2({ subsets: ["latin"], weight: "400", style: "normal" });
 
 const images = [
