@@ -16,6 +16,7 @@ import { GradientTextArea } from "@/components/ui/input";
 import SelectedCard from "@/components/pages/common/selected-card";
 const bebasNeue = Bebas_Neue({ subsets: ["latin"], weight: "400", style: "normal" });
 import { motion } from "framer-motion";
+import { PollsWindow } from "@/components/pages/common/polls";
 
 interface Lesson {
     id: number;
@@ -65,11 +66,16 @@ export default function Page({ params }: { params: { id: string } }) {
                     <div className="grid auto-rows-max items-start gap-4 md:gap-8 lg:col-span-2">
                         <div className="flex justify-between items-center">
                             <h3 className={`${bebasNeue.className} text-yellow-500 text-xl lg:text-4xl`}> {course?.title}</h3 >
-                            <YellowButton onClick={() => {
-                                window.location.href = '/learn';
-                            }}>
-                                {`Back`}
-                            </YellowButton>
+                            <div className="flex flex-row items-center gap-2">
+                                <YellowButton onClick={() => {
+                                    window.location.href = '/learn';
+                                }}>
+                                    {`Back`}
+                                </YellowButton>
+                                <YellowButton onClick={() => setOpenDetails(true)}>
+                                    {`${course?.type} Details`}
+                                </YellowButton>
+                            </div>
                         </div>
                         <VideoContent course={course} />
                         <TestTabs lesson={currentLesson} tutor={tutor} />
@@ -103,12 +109,10 @@ export default function Page({ params }: { params: { id: string } }) {
                             {/* <Separator className="my-2 mb-4 bg-yellow-500" /> */}
                             <Lessons lessons={lessons} currentLesson={currentLesson} setCurrentLesson={setCurrentLesson} />
                         </CardContent>
-                        <CardFooter className="flex flex-row items-center bg-black px-6 py-3">
-                            <YellowButton onClick={() => setOpenDetails(true)}>
-                                {`${course?.type} Details`}
-                            </YellowButton>
+                        {/* <CardFooter className="flex flex-row items-center bg-black px-6 py-3">
+                          
 
-                        </CardFooter>
+                        </CardFooter> */}
                     </Card>
                 </div>
             </div>
@@ -149,9 +153,9 @@ function Tutor({ turor }: { turor: Tutor | undefined }) {
             viewBox="0 0 24 24"
         >
             <path
-                fill-rule="evenodd"
+                fillRule="evenodd"
                 d="M5 8a1 1 0 0 1 1 1v3a4.006 4.006 0 0 0 4 4h4a4.006 4.006 0 0 0 4-4V9a1 1 0 1 1 2 0v3.001A6.006 6.006 0 0 1 14.001 18H13v2h2a1 1 0 1 1 0 2H9a1 1 0 1 1 0-2h2v-2H9.999A6.006 6.006 0 0 1 4 12.001V9a1 1 0 0 1 1-1Z"
-                clip-rule="evenodd"
+                clipRule="evenodd"
             />
             <path d="M7 6a4 4 0 0 1 4-4h2a4 4 0 0 1 4 4v5a4 4 0 0 1-4 4h-2a4 4 0 0 1-4-4V6Z" />
         </svg>
@@ -220,10 +224,10 @@ function TestTabs({ lesson, tutor }: { lesson: any, tutor: any }) {
         <TabsContent value="questions">
             <QuestionsTabContent questions={lesson.questions} tutor={tutor} user={user} />
         </TabsContent>
-        <TabsContent value="polls">Change your password here.</TabsContent>
-        <TabsContent value="essay">Change your password here.</TabsContent>
-        <TabsContent value="game">Change your password here.</TabsContent>
-        <TabsContent value="result">Change your password here.</TabsContent>
+        <TabsContent value="polls"><PollsWindow /></TabsContent>
+        <TabsContent value="essay">No Content Yet.</TabsContent>
+        <TabsContent value="game">No Content Yet</TabsContent>
+        <TabsContent value="result">No Content Yet.</TabsContent>
     </Tabs>
 }
 
@@ -294,7 +298,7 @@ function QuestionsTabContent({ questions, tutor, user }: { questions: any[], tut
                                 <path
                                     fill-rule="evenodd"
                                     d="M5 8a1 1 0 0 1 1 1v3a4.006 4.006 0 0 0 4 4h4a4.006 4.006 0 0 0 4-4V9a1 1 0 1 1 2 0v3.001A6.006 6.006 0 0 1 14.001 18H13v2h2a1 1 0 1 1 0 2H9a1 1 0 1 1 0-2h2v-2H9.999A6.006 6.006 0 0 1 4 12.001V9a1 1 0 0 1 1-1Z"
-                                    clip-rule="evenodd"
+                                    clipRule="evenodd"
                                 />
                                 <path d="M7 6a4 4 0 0 1 4-4h2a4 4 0 0 1 4 4v5a4 4 0 0 1-4 4h-2a4 4 0 0 1-4-4V6Z" />
                             </svg>
