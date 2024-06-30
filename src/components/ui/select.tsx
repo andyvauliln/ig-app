@@ -17,11 +17,11 @@ const SelectTrigger = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger>
 >(({ className, children, ...props }, ref) => {
   return (
-    <div className={cn(className, "p-[1.5px] rounded-md bg-gradient-to-r from-yellow-700 via-gray-900 to-yellow-500")}>
+    <div className={cn(className, "z-10 p-[1.5px] w-full rounded-md bg-gradient-to-r from-yellow-700 via-gray-900 to-yellow-500")}>
       <SelectPrimitive.Trigger
         ref={ref}
         className={cn(
-          "flex space-x-4 h-10 w-full items-center justify-between rounded-md  bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1",
+          "flex space-x-4 h-10 w-full items-center font-bold justify-between rounded-md  bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1",
           className
         )}
         {...props}
