@@ -55,9 +55,9 @@ Button.displayName = "Button"
 
 export function YellowButton({ onClick, children }: { onClick: () => void, children: React.ReactNode }) {
   return (
-    <Button onClick={onClick} className="p-[2px] relative transform transition-transform duration-200 hover:scale-105">
+    <Button onClick={onClick} className="p-[2px] z-10 relative transform transition-transform duration-200 hover:scale-105">
       <div className="absolute inset-0 bg-gradient-to-r from-yellow-500 via-yellow-700 to-yellow-400 rounded-lg" />
-      <div className="px-8 py-2 bg-black rounded-[6px] relative group font-extrabold transition duration-200 text-white">
+      <div className="px-8 py-2  bg-black rounded-[6px] relative group font-extrabold transition duration-200 text-white">
         {children}
       </div>
     </Button>
