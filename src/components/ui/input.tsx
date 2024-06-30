@@ -43,9 +43,9 @@ GradientInput.displayName = "GradientInput"
 const GradientTextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
   ({ className, placeholder, ...props }, ref) => {
     return (
-      <div className="my-4 p-[1.5px] w-full rounded-md bg-gradient-to-r from-yellow-500 via-yellow-700 to-yellow-500">
+      <div className={cn("my-4 p-[1.5px] w-full h-40 rounded-md bg-gradient-to-r from-yellow-500 via-yellow-700 to-yellow-500", className)}>
         <textarea
-          className="px-3 py-2 w-full flex h-40 text-sm ring-offset-background rounded-md bg-background text-muted-foreground placeholder:text-muted-foreground focus:outline-none disabled:cursor-not-allowed disabled:opacity-50"
+          className={cn("px-3 py-2 w-full flex h-full  text-sm ring-offset-background rounded-md bg-background text-muted-foreground placeholder:text-muted-foreground focus:outline-none disabled:cursor-not-allowed disabled:opacity-50", className)}
           placeholder={placeholder}
           ref={ref}
           {...props}
