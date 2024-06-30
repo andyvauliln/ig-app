@@ -14,12 +14,14 @@ const TabsList = React.forwardRef<
   <TabsPrimitive.List
     ref={ref}
     className={cn(
-      "inline-flex w-full border-b-2 border-yellow-500 pb-2 h-10 items-center py-1 text-muted-foreground",
+      "inline-flex w-full pb-2 h-10 items-center py-1 text-muted-foreground",
+      "shadow-[0_9px_14px_-7px_rgba(255,215,0,0.6)]", // Adjusted for bottom-only glow
       className
     )}
     {...props}
   />
 ))
+// 0 9px 14px -7px rgba(255,215,0,0.6)
 TabsList.displayName = TabsPrimitive.List.displayName
 
 const TabsTrigger = React.forwardRef<
@@ -29,12 +31,15 @@ const TabsTrigger = React.forwardRef<
   <TabsPrimitive.Trigger
     ref={ref}
     className={cn(
-      "inline-flex items-center justify-center whitespace-nowrap rounded-t-sm px-5 py-1.5 text-sm font-medium  disabled:pointer-events-none data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:border-yellow-500 data-[state=active]:border-2 data-[state=active]:border-b-0",
+      "inline-flex items-center justify-center whitespace-nowrap rounded-t-sm px-5 py-1.5 text-sm font-medium disabled:pointer-events-none",
+      "data-[state=active]:bg-background data-[state=active]:text-foreground",
+      "data-[state=active]:shadow-[0_-12px_27px_-12px_rgba(255,215,0,0.6),0px_0_0px_0px_rgba(255,215,0,0.6),0px_-1px_2px_0px_rgba(255,215,0,0.6)]", // Updated glowing effect
       className
     )}
     {...props}
   />
 ))
+// data-[state=active]:border-yellow-500 data-[state=active]:border-2 data-[state=active]:border-b-0
 TabsTrigger.displayName = TabsPrimitive.Trigger.displayName
 
 const TabsContent = React.forwardRef<
