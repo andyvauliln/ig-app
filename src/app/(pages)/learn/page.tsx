@@ -22,14 +22,32 @@ import {
 import SelectedCard from "@/components/pages/common/selected-card";
 const bebasNeue = Bebas_Neue({ subsets: ["latin"], weight: "400", style: "normal" });
 
-
 export default function LearnPage() {
+    const [searchTerm, setSearchTerm] = useState("");
+    const [selectedCountry, setSelectedCountry] = useState("all");
+    const [selectedCategory, setSelectedCategory] = useState("all");
+    const [selectedPeriod, setSelectedPeriod] = useState("all");
+
+    const filteredItems = items.filter(item => {
+        return (
+            (searchTerm === "" || item.title.toLowerCase().includes(searchTerm.toLowerCase()) || item.short_description.toLowerCase().includes(searchTerm.toLowerCase())) &&
+            (selectedCountry === "all" || item.country === selectedCountry) &&
+            (selectedCategory === "all" || item.category === selectedCategory) &&
+            (selectedPeriod === "all" || item.period === selectedPeriod)
+        );
+    });
+
     return (
         <div className="flex justify-between min-h-screen w-full flex-col overflow-y-hidden">
             <div className="px-4">
                 <h3 className={`${bebasNeue.className} text-yellow-500 text-xl lg:text-4xl mb-2`}> Learn</h3 >
                 <div className="flex w-full justify-between mb-6">
-                    <GradientInput placeholder="Search by title, author, hashtag, or description" className="w-[50%]" />
+                    <GradientInput
+                        placeholder="Search by title, author, hashtag, or description"
+                        className="w-[50%]"
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                    />
                     <div className="space-x-2">
                         <YellowButton onClick={() => { }}>
                             All
@@ -44,11 +62,9 @@ export default function LearnPage() {
                             In Process
                         </YellowButton>
                     </div>
-
                 </div>
                 <Accordion type="single" collapsible>
                     <AccordionItem value="item-1">
-
                         <AccordionTrigger>
                             <h3 className={`${bebasNeue.className} text-yellow-500 text-xl lg:text-4xl hover:scale-105 flex items-center`}>
                                 <svg className="w-9 h-9 mr-2 text-yellow-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
@@ -58,30 +74,29 @@ export default function LearnPage() {
                             </h3 >
                         </AccordionTrigger>
                         <AccordionContent className="text-white w-full flex space-x-2">
-                            <SelectCountry />
-                            <SelectCategory />
-                            <SelectPeriod />
-                            <GradientInput placeholder="Price < Amount" className="w-[150px]" />
+                            <SelectCountry selectedCountry={selectedCountry} setSelectedCountry={setSelectedCountry} />
+                            <SelectCategory selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
+                            <SelectPeriod selectedPeriod={selectedPeriod} setSelectedPeriod={setSelectedPeriod} />
+                            <GradientInput placeholder="Price < Amount" className="min-w-[250px]" />
                         </AccordionContent>
                     </AccordionItem>
-
                 </Accordion>
             </div>
-            <LearnGrid cards={items} SelectedCard={SelectedCard} ContentCard={ContentCard} />
+            <LearnGrid cards={filteredItems} SelectedCard={SelectedCard} ContentCard={ContentCard} />
         </div>
-
     );
 }
 
-function SelectCountry() {
+function SelectCountry({ selectedCountry, setSelectedCountry }: { selectedCountry: string, setSelectedCountry: (value: string) => void }) {
     return (
-        <Select>
+        <Select value={selectedCountry} onValueChange={setSelectedCountry}>
             <SelectTrigger className="">
                 <SelectValue placeholder="Country" />
             </SelectTrigger>
             <SelectContent>
                 <SelectGroup>
                     <SelectLabel className="text-yellow-500 border-b mb-1 border-yellow-500">Country</SelectLabel>
+                    <SelectItem value="all">All</SelectItem>
                     <SelectItem value="usa">USA</SelectItem>
                     <SelectItem value="canada">Canada</SelectItem>
                     <SelectItem value="mexico">Mexico</SelectItem>
@@ -97,15 +112,17 @@ function SelectCountry() {
         </Select>
     )
 }
-function SelectPeriod() {
+
+function SelectPeriod({ selectedPeriod, setSelectedPeriod }: { selectedPeriod: string, setSelectedPeriod: (value: string) => void }) {
     return (
-        <Select>
+        <Select value={selectedPeriod} onValueChange={setSelectedPeriod}>
             <SelectTrigger className="">
                 <SelectValue placeholder="Period" />
             </SelectTrigger>
             <SelectContent>
                 <SelectGroup>
                     <SelectLabel className="text-yellow-500 border-b mb-1 border-yellow-500">Period</SelectLabel>
+                    <SelectItem value="all">All</SelectItem>
                     <SelectItem value="2000">2000-2100</SelectItem>
                     <SelectItem value="1900">1900-2000</SelectItem>
                     <SelectItem value="1800">1800-1900</SelectItem>
@@ -128,21 +145,22 @@ function SelectPeriod() {
                     <SelectItem value="100">100-200</SelectItem>
                     <SelectItem value="90">0-100</SelectItem>
                     <SelectItem value="80">&lt; 0</SelectItem>
-
                 </SelectGroup>
             </SelectContent>
         </Select>
     )
 }
-function SelectCategory() {
+
+function SelectCategory({ selectedCategory, setSelectedCategory }: { selectedCategory: string, setSelectedCategory: (value: string) => void }) {
     return (
-        <Select>
+        <Select value={selectedCategory} onValueChange={setSelectedCategory}>
             <SelectTrigger className="">
                 <SelectValue placeholder="Category" />
             </SelectTrigger>
             <SelectContent>
                 <SelectGroup>
                     <SelectLabel className="text-yellow-500 border-b mb-1 border-yellow-500">Category</SelectLabel>
+                    <SelectItem value="all">All</SelectItem>
                     <SelectItem value="economy">Economy</SelectItem>
                     <SelectItem value="war">War</SelectItem>
                     <SelectItem value="biography">Biography</SelectItem>
