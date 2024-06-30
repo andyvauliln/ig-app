@@ -123,7 +123,10 @@
 .yellow-card-active {
     box-shadow: 0 0px 6px 1px #D4AF37;
     transform: scale(1.05);
-    padding: 1rem;
+    color: #D4AF37;
+    font-weight: bold;
+    padding-right: 1.5rem;
+    /* padding: 1rem; */
 }
 
 .yellow-card-bg {
