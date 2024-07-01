@@ -14,3 +14,15 @@ export function Login() {
 
   );
 }
+export function SignUp() {
+  const handleClick = () => {
+    signIn();
+  };
+
+  return (
+    <YellowButton onClick={handleClick}>
+      Sign Up
+    </YellowButton>
+
+  );
+}

@@ -41,7 +41,7 @@ export default function SoundControl() {
     )
 }
 
-function DownloadIcon(props) {
+function DownloadIcon(props: any) {
     return (
         <svg
             {...props}

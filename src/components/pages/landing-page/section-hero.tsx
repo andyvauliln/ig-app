@@ -7,6 +7,7 @@ import { Bebas_Neue } from 'next/font/google';
 import AnimatedText from '../common/animated-text';
 import { motion } from "framer-motion";
 import { YellowButton } from "@/components/ui/button";
+import { SignUp } from '../layout/login-button';
 
 const bebasNeue = Bebas_Neue({ subsets: ["latin"], weight: "400", style: "normal" });
 
@@ -20,9 +21,7 @@ export default function HeroSection() {
                         <QuoteText />
                         <AuthorText />
                         <div className="items-center mt-10">
-                            <YellowButton onClick={() => { }}>
-                                Sign Up
-                            </YellowButton>
+                            <SignUp />
                         </div>
                     </LampContainer>
                     <div className="lg:col-span-4 mt-10 lg:mt-0 w-full rounded-xl h-full min-h-[500px]">

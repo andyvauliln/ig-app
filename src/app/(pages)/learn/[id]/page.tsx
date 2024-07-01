@@ -359,6 +359,7 @@ const items = [
                 lesson_name: "Introduction to Ancient Civilizations",
                 completed: true,
                 lesson_order: 1,
+                video_url: "https://www.youtube.com/embed/0EOLxc1o0NY",
                 lesson_description: "An overview of ancient civilizations. This lesson introduces students to the major ancient cultures, including Mesopotamia, Egypt, Greece, and Rome. It covers their geographical locations, key historical events, and significant contributions to human history. Students will learn about the development of writing, law, and governance in these societies. The lesson also highlights the importance of trade and cultural exchange. By the end of this lesson, students will have a foundational understanding of ancient civilizations and their impact on the world.",
                 lesson_img_url: "/images/event_1.png",
                 questions: [
@@ -385,13 +386,15 @@ const items = [
                 lesson_order: 2,
                 completed: false,
                 lesson_description: "An overview of ancient civilizations. This lesson introduces students to the major ancient cultures, including Mesopotamia, Egypt, Greece, and Rome. It covers their geographical locations, key historical events, and significant contributions to human history. Students will learn about the development of writing, law, and governance in these societies. The lesson also highlights the importance of trade and cultural exchange. By the end of this lesson, students will have a foundational understanding of ancient civilizations and their impact on the world.",
-                lesson_img_url: "/images/event_2.png"
+                lesson_img_url: "/images/event_2.png",
+                video_url: "https://www.youtube.com/embed/jVjZ3bHQuhA",
             },
             {
                 id: 3,
                 lesson_name: "Introduction to Ancient Civilizations",
                 lesson_order: 3,
                 completed: false,
+                video_url: "https://www.youtube.com/embed/jVjZ3bHQuhA",
                 lesson_description: "An overview of ancient civilizations. This lesson introduces students to the major ancient cultures, including Mesopotamia, Egypt, Greece, and Rome. It covers their geographical locations, key historical events, and significant contributions to human history. Students will learn about the development of writing, law, and governance in these societies. The lesson also highlights the importance of trade and cultural exchange. By the end of this lesson, students will have a foundational understanding of ancient civilizations and their impact on the world.",
                 lesson_img_url: "/images/event_3.png"
             }
@@ -446,6 +449,7 @@ const items = [
                 lesson_order: 1,
                 lesson_description: "An overview of ancient civilizations. This lesson introduces students to the major ancient cultures, including Mesopotamia, Egypt, Greece, and Rome. It covers their geographical locations, key historical events, and significant contributions to human history. Students will learn about the development of writing, law, and governance in these societies. The lesson also highlights the importance of trade and cultural exchange. By the end of this lesson, students will have a foundational understanding of ancient civilizations and their impact on the world.",
                 lesson_img_url: "/images/event_1.png",
+                video_url: "https://www.youtube.com/embed/jVjZ3bHQuhA",
                 questions: [
                     {
                         id: 1,
@@ -528,6 +532,7 @@ const items = [
                 id: 3,
                 lesson_name: "Introduction to the Industrial Revolution",
                 lesson_order: 1,
+                video_url: "https://www.youtube.com/embed/jVjZ3bHQuhA",
                 lesson_description: "An overview of the Industrial Revolution. This lesson introduces students to the key inventions and innovations that drove industrialization. It covers the transition from agrarian economies to industrial economies and the resulting changes in society. Students will learn about the impact of industrialization on different social classes and the development of new economic theories. The lesson also discusses the global spread of industrialization and its long-term effects. By the end of this lesson, students will have a foundational understanding of the Industrial Revolution and its significance.",
                 lesson_img_url: "/images/lesson_3.png"
             }
@@ -580,7 +585,8 @@ const items = [
                 lesson_name: "Introduction to World War I and II",
                 lesson_order: 1,
                 lesson_description: "An overview of World War I and II. This lesson introduces students to the major causes and events of the two world wars. It covers the alliances, military strategies, and key battles that defined the conflicts. Students will learn about the impact of the wars on different regions and populations. The lesson also discusses the aftermath of the wars, including the formation of the United Nations and the beginning of the Cold War. By the end of this lesson, students will have a foundational understanding of World War I and II and their significance.",
-                lesson_img_url: "/images/lesson_4.png"
+                lesson_img_url: "/images/lesson_4.png",
+                video_url: "https://www.youtube.com/embed/jVjZ3bHQuhA",
             }
         ]
     },
@@ -631,7 +637,8 @@ const items = [
                 lesson_name: "Introduction to the Cold War",
                 lesson_order: 1,
                 lesson_description: "An overview of the Cold War. This lesson introduces students to the major events and figures of the Cold War. It covers the ideological differences between the United States and the Soviet Union and the resulting political and military tensions. Students will learn about the impact of the Cold War on different regions and the role of nuclear arms in the conflict. The lesson also discusses the end of the Cold War and its lasting effects on global politics. By the end of this lesson, students will have a foundational understanding of the Cold War and its significance.",
-                lesson_img_url: "/images/lesson_5.png"
+                lesson_img_url: "/images/lesson_5.png",
+                video_url: "https://www.youtube.com/embed/jVjZ3bHQuhA",
             }
         ]
     },
@@ -682,7 +689,8 @@ const items = [
                 lesson_name: "Introduction to the German Revolution",
                 lesson_order: 1,
                 lesson_description: "An overview of the German Revolution. This lesson introduces students to the major causes and events of the revolution. It covers the political and social changes that occurred during the revolution and the impact on German society. Students will learn about the key figures and movements involved in the revolution. The lesson also discusses the aftermath of the revolution and its role in shaping modern Germany. By the end of this lesson, students will have a foundational understanding of the German Revolution and its significance.",
-                lesson_img_url: "/images/lesson_6.png"
+                lesson_img_url: "/images/lesson_6.png",
+                video_url: "https://www.youtube.com/embed/jVjZ3bHQuhA",
             }
         ]
     },
@@ -733,7 +741,8 @@ const items = [
                 lesson_name: "Introduction to the Renaissance",
                 lesson_order: 1,
                 lesson_description: "An overview of the Renaissance. This lesson introduces students to the major artistic, scientific, and cultural achievements of the Renaissance period. It covers the social and political context of the Renaissance and its impact on European society. Students will learn about key figures such as Leonardo da Vinci, Michelangelo, and Galileo. The lesson also discusses the development of humanism and its influence on art and literature. By the end of this lesson, students will have a foundational understanding of the Renaissance and its significance.",
-                lesson_img_url: "/images/lesson_7.png"
+                lesson_img_url: "/images/lesson_7.png",
+                video_url: "https://www.youtube.com/embed/jVjZ3bHQuhA",
             }
         ]
     },
@@ -784,7 +793,8 @@ const items = [
                 lesson_name: "Introduction to the Renaissance",
                 lesson_order: 1,
                 lesson_description: "An overview of the Renaissance. This lesson introduces students to the major artistic, scientific, and cultural achievements of the Renaissance period. It covers the social and political context of the Renaissance and its impact on European society. Students will learn about key figures such as Leonardo da Vinci, Michelangelo, and Galileo. The lesson also discusses the development of humanism and its influence on art and literature. By the end of this lesson, students will have a foundational understanding of the Renaissance and its significance.",
-                lesson_img_url: "/images/lesson_8.png"
+                lesson_img_url: "/images/lesson_8.png",
+                video_url: "https://www.youtube.com/embed/jVjZ3bHQuhA",
             }
         ]
     },
@@ -835,7 +845,8 @@ const items = [
                 lesson_name: "Introduction to the Renaissance",
                 lesson_order: 1,
                 lesson_description: "An overview of the Renaissance. This lesson introduces students to the major artistic, scientific, and cultural achievements of the Renaissance period. It covers the social and political context of the Renaissance and its impact on European society. Students will learn about key figures such as Leonardo da Vinci, Michelangelo, and Galileo. The lesson also discusses the development of humanism and its influence on art and literature. By the end of this lesson, students will have a foundational understanding of the Renaissance and its significance.",
-                lesson_img_url: "/images/lesson_9.png"
+                lesson_img_url: "/images/lesson_9.png",
+                video_url: "https://www.youtube.com/embed/jVjZ3bHQuhA",
             }
         ]
     },
@@ -885,6 +896,7 @@ const items = [
                 id: 10,
                 lesson_name: "Introduction to the Renaissance",
                 lesson_order: 1,
+                video_url: "https://www.youtube.com/embed/jVjZ3bHQuhA",
                 lesson_description: "An overview of the Renaissance. This lesson introduces students to the major artistic, scientific, and cultural achievements of the Renaissance period. It covers the social and political context of the Renaissance and its impact on European society. Students will learn about key figures such as Leonardo da Vinci, Michelangelo, and Galileo. The lesson also discusses the development of humanism and its influence on art and literature. By the end of this lesson, students will have a foundational understanding of the Renaissance and its significance.",
                 lesson_img_url: "/images/lesson_10.png"
             }
