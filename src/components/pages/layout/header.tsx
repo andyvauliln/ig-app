@@ -9,6 +9,7 @@ import { Login } from '@/components/pages/layout/login-button';
 import { Logout } from '@/components/pages/layout/logout-button';
 import { Anton } from "next/font/google"
 import { usePathname } from 'next/navigation'
+import { UserNav } from '@/components/pages/layout/user-nav';
 
 const anton = Anton({ subsets: ["latin"], weight: "400", style: "normal" });
 interface NavbarLinksProps {
@@ -24,7 +25,6 @@ interface NavbarToggleProps {
 export default function Navbar() {
   const [navbar, setNavbar] = useState(false)
   const { user } = useContext(AuthContext);
-  console.log("USER HEADER", user)
 
   const handleClick = async () => {
     setNavbar(false)
@@ -48,7 +48,7 @@ export default function Navbar() {
             </Link>
           </div>
           <div className="flex gap-1 md:hidden">
-            {user ? <Logout /> : <Login />}
+            {user ? <UserNav /> : <Login />}
           </div>
           {/*
             {user ? <Logout /> : <Login />}
@@ -57,7 +57,7 @@ export default function Navbar() {
         </div>
         <NavbarLinks navbar={navbar} handleClick={handleClick} />
         <div className="hidden md:flex items-center space-x-4">
-          {!navbar && user ? <Logout /> : <Login />}
+          {!navbar && user ? <UserNav /> : <Login />}
           {/* {settings.themeToggleEnabled && (
             <div className="hidden md:block">
               <ModeToggle />
