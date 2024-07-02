@@ -5,8 +5,11 @@ const isOnChain = process.env.NEXT_PUBLIC_IS_ONCHAIN === 'true';
 
 const coreConfig = {
     experimental: {
-        reactCompiler: true,
-        after: true,
+        // workerThreads: false,
+        // cpus: 1,
+
+        // reactCompiler: true,
+        // after: true,
         // staleTimes: {
         //     dynamic: 30,
         //     static: 180
@@ -18,8 +21,13 @@ const coreConfig = {
         //optimizePackageImports: ['icon-library'],
 
     },
+    swc: {
+        minify: false,
+    },
     bundlePagesRouterDependencies: true,
     images: {
+        loader: 'custom',
+        loaderFile: './image-loader.js',
         remotePatterns: [{ hostname: "utfs.io" }, { hostname: "randomuser.me", protocol: "https", pathname: '/api/portraits/men/**' }],
     },
     // profiler: true,
@@ -34,7 +42,8 @@ const coreConfig = {
     plugins: [
         addVariablesForColors
     ],
-    // output: 'standalone'
+    output: "export",
+    distDir: 'build' // Specify your custom build directory here
 };
 
 function addVariablesForColors({ addBase, theme }) {
@@ -48,6 +57,6 @@ function addVariablesForColors({ addBase, theme }) {
     });
 }
 
-const config = isOnChain ? withJuno(coreConfig) : { coreConfig };
+const config = isOnChain ? withJuno(coreConfig) : coreConfig;
 
 export default config;

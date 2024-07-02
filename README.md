@@ -40,3 +40,4 @@ socket path $HOME/.colima/default/docker.sock
 colima status
 docker context list
 export DOCKER_HOST="unix://${HOME}/.colima/default/docker.sock"
+Your terminal is authenticated as the controller lahaa-c4ggc-fvn2i-5pzia-7oglt-avxox-trxm2-zfzye-or3lo-zzitz-mqe.
