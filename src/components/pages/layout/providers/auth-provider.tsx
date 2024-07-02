@@ -31,12 +31,14 @@ export const AuthProvider = ({ children }: { children?: ReactNode }) => {
 
         getProfile(user).then((data: any) => {
           console.log("USER PROFILE", data)
-          const hasProfile = data.items_length > 0;
-          setLoading(false);
-          if (hasProfile) {
-            router.push(routes.learn);
-          } else {
-            router.push(routes.onboarding);
+          if (data) {
+            const hasProfile = data.items_length > 0;
+            setLoading(false);
+            if (hasProfile) {
+              router.push(routes.learn);
+            } else {
+              router.push(routes.onboarding);
+            }
           }
         });
       } else {
