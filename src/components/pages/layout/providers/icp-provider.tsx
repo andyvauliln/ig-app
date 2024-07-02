@@ -7,7 +7,7 @@ export const ICPProvider = ({ children }: { children?: ReactNode }) => {
         // if (process.env.NEXT_PUBLIC_IS_ONCHAIN === 'true') {
         (async () =>
             await initSatellite({
-                satelliteId: process.env.NODE_ENV === "development" ? "jx5yt-yyaaa-aaaal-abzbq-cai" : process.env.NEXT_PUBLIC_SATTELITE_ID,
+                satelliteId: process.env.NEXT_PUBLIC_SATTELITE_ID,
                 workers: {
                     auth: true
                 }
