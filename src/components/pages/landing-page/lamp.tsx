@@ -92,7 +92,7 @@ export const LampContainer = ({
 function GoldText() {
     return (
         <div className="absolute text-center  text-[#D4AF37] text-2xl mb-5 top-52 pb-4 z-50" >
-            <AnimatedText initialDelay={2} words="Engage, Learn and Earn with" />
+            <AnimatedText initialDelay={2} words="Create, Learn and Earn with" />
         </div>
     );
 }
